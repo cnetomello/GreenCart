@@ -104,7 +104,7 @@ if(isset($_SESSION['duplicate'])){
 </div>
 <script>
     function isEmail(text) {
-        //teste
+        
         const regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
         if(regex.test(text)){
             return true;
