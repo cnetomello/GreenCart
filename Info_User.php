@@ -70,7 +70,7 @@ $phone =  isset($_SESSION['infos_pessoa']['phone']) ? $_SESSION['infos_pessoa'][
 <?php if($_SESSION['is_produtor']){ ?>
     <div style="display:block;">
 <div style="display: flex;">
-<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;">Nome Empresa : <?php echo $nome_empresa ?></div> <button style="margin-left : 30px;font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif;">Edit Nome Empresa</button>
+<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;"><h1>Nome Empresa : <?php echo $nome_empresa ?></h1></div> <button style="margin-left : 30px;font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif;cursor:pointer;"><h1>Edit Nome Empresa</h1></button>
 
 </div> <br>
 
@@ -78,16 +78,16 @@ $phone =  isset($_SESSION['infos_pessoa']['phone']) ? $_SESSION['infos_pessoa'][
 
 
 <div style="display: flex;">
-<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;">email : <?php echo $email_prod; ?></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;">Edit Email</button>
+<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;"><h1>Email : <?php echo $email_prod; ?></h1></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;cursor:pointer;"><h1>Edit Email</h1></button>
 
 </div> <br>
 
 <div style="display: flex;">
-<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;">Phone : <?php echo $fone_prod; ?></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;">Edit Phone</button>
+<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;"><h1>Phone : <?php echo $fone_prod; ?></h1></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;cursor:pointer;"><h1>Edit Phone</h1></button>
 
 </div> <br>
 
-<button style="margin : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: red;border-radius: 3px;" onclick="delete_acc();">Delete Account</button>
+<button style="margin : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: red;border-radius: 3px;cursor:pointer;" onclick="delete_acc();"><h1>Delete Account</h1></button>
 </div>
 
 
@@ -96,25 +96,25 @@ $phone =  isset($_SESSION['infos_pessoa']['phone']) ? $_SESSION['infos_pessoa'][
     <?php } else{ ?>
 <div style="display:block;">
 <div style="display: flex;">
-<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;">First Name : <?php echo $first_name ?></div> <button style="margin-left : 30px;font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif;">Edit First Name</button>
+<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;"><h1>First Name : <?php echo $first_name ?></h1></div> <button style="margin-left : 30px;font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif; cursor:pointer;"><h1>Edit First Name</h1></button>
 
 </div> <br>
 
 <div style="display: flex;">
-<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;">Last Name : <?php echo $last_name ?></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;">Edit Last Name</button>
+<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;"><h1>Last Name : <?php echo $last_name ?></h1></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;cursor:pointer;"><h1>Edit Last Name</h1></button>
 
 </div> <br>
 <div style="display: flex;">
-<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;">email : <?php echo $email; ?></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;">Edit Email</button>
+<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;"><h1>Email : <?php echo $email; ?></div></h1> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;cursor:pointer;"><h1>Edit Email</h1></button>
 
 </div> <br>
 
 <div style="display: flex;">
-<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;">Phone : <?php echo $phone; ?></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;">Edit Phone</button>
+<div style="background-color: green;font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 2px;align-items:center;color:white;"><h1>Phone : <?php echo $phone; ?></h1></div> <button style="margin-left : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif;cursor:pointer;"><h1>Edit Phone</h1></button>
 
 </div> <br>
 
-<button style="margin : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: red;border-radius: 3px;" onclick="delete_acc();">Delete Account</button>
+<button style="margin : 30px;font-size:15px;font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: red;border-radius: 3px;cursor:pointer;" onclick="delete_acc();">Delete Account</button>
 </div>
 </body>
 <?php } ?>
