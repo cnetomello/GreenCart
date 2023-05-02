@@ -1,8 +1,6 @@
 <?php
 
-//Clovis
-
-$servername = "localhost:8080";
+$servername = "localhost:3308";
 $username = "root@";
 $password = "";
 $dbname = "login_econ";
