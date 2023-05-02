@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="CSS/style.css">
     <title>Formulário</title>
 </head>
+
+
+
 <?php
 session_start();
 if(isset($_SESSION['duplicate'])){
@@ -106,6 +109,9 @@ if(isset($_SESSION['duplicate'])){
         </form>
     </div>
 </div>
+
+
+
 <script>
     function isEmail(text) {
         const regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
