@@ -1,8 +1,9 @@
+
 <?php
 
-//Clovis
+//Cyril
 
-$servername = "localhost:8080";
+$servername = "localhost:3306";
 $username = "root@";
 $password = "";
 $dbname = "login_econ";
