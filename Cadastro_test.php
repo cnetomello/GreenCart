@@ -58,7 +58,7 @@ if(isset($_SESSION['duplicate'])){
                 </div>
                 <div class="input-box">
                     <label for="email">E-mail</label>
-                    <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                    <input id="email" type="text" name="email" placeholder="Digite seu e-mail" required>
                     <p id="error-email" style="font-size: 10px; display: none">
                         *Digite um email valido<br>
                     </p>
@@ -67,17 +67,28 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label for="number">Celular</label>
                     <input id="number" type="tel" name="phone" placeholder="(xx) xxxx-xxxx" required>
+                    <p id="error-phone" style="font-size: 10px; display: none">
+                        *digite um telefone valido<br>
+                    </p>
                 </div>
 
                 <div class="input-box">
                     <label for="password">Senha</label>
                     <input id="password" type="password" name="pass" placeholder="Digite sua senha" required>
+                    <p id="error-password" style="font-size: 10px; display: none">
+                        *a senha deve conter pelo menos um caracter maiusculo<br>
+                        *a senha deve conter pelo menos um caractere especial<br>
+                        *a senha deve ter pelo menos 6 digitos
+                    </p>
                 </div>
 
 
                 <div class="input-box">
                     <label for="confirmPassword">Confirme sua Senha</label>
                     <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
+                    <p id="error-confirmPassword" style="font-size: 10px; display: none">
+                        *as senhas devem ser igual<br>
+                    </p>
                 </div>
 
             </div>
@@ -102,9 +113,11 @@ if(isset($_SESSION['duplicate'])){
                         <input id="others" type="radio" name="gender" value="Outros">
                         <label for="others">Outros</label>
                     </div>
-
-
                 </div>
+                <p id="error-genero" style="font-size: 10px; display: none">
+                    *por favor escolha pelo menos uma opcao<br>
+                </p>
+
             </div>
 
             <div class="continue-button">
@@ -114,16 +127,6 @@ if(isset($_SESSION['duplicate'])){
     </div>
 </div>
 <script>
-    // jimmy butler bt
-    function isEmail(text) {
-        const regex =/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
-        if(regex.test(text)){
-            return true;
-        }
-        return false;
-    }
-
-
     function allLetter(inputtxt)
     {
         var letters = /^[A-Za-z,\s]+$/;
@@ -149,19 +152,18 @@ if(isset($_SESSION['duplicate'])){
         }
         return false;
     }
+    const first=document.getElementById('firstname');
+    const last=document.getElementById('lastname');
+    const email=document.getElementById('email');
+    const phone=document.getElementById('number');
+    const password=document.getElementById('password');
+    const masculino = document.getElementById('male');
+    const feminino = document.getElementById('female');
+    const outros = document.getElementById('others');
+    const confirm_pass = document.getElementById('confirmPassword');
 
     function validate(){
-
-        let first=document.getElementById('firstname');
-        let last=document.getElementById('lastname');
-        let email=document.getElementById('email');
-        let phone=document.getElementById('number');
-        let password=document.getElementById('password');
-        let masculino = document.getElementById('male');
-        let feminino = document.getElementById('female');
-        let outros = document.getElementById('others');
-        let confirm_pass = document.getElementById('confirmPassword');
-
+        //----------------------------------------validando first_name--------------------------------------------------
         if (first.value.length<3 || !allLetter(first)){
             var firstNameInput = document.querySelector('.input-box input[type="text"][name="first_name"]');
             firstNameInput.style.borderColor = 'red'
@@ -170,6 +172,14 @@ if(isset($_SESSION['duplicate'])){
             first.focus();
             return false;
         }
+        else {
+            var firstNameInput = document.querySelector('.input-box input[type="text"][name="first_name"]');
+            firstNameInput.style.borderColor = '';
+            var errorName = document.querySelector("#error-name");
+            errorName.style.display = 'none';
+        }
+
+        //----------------------------------------validando last_name--------------------------------------------------
         if (last.value.length<3 || !allLetter(last)){
             var lastNameInput = document.querySelector('.input-box input[type="text"][name="last_name"]');
             lastNameInput.style.borderColor = 'red'
@@ -177,34 +187,86 @@ if(isset($_SESSION['duplicate'])){
             errorLastName.style.display = 'block'
             last.focus();
             return false;
+        }else{
+            var lastNameInput = document.querySelector('.input-box input[type="text"][name="last_name"]');
+            lastNameInput.style.borderColor = '';
+            var errorLastName = document.querySelector("#error-last-name");
+            errorLastName.style.display = 'none';
         }
-        if(!isEmail(email.value)){
-            var emailInput = document.querySelector('.input-box input[type="email"][name="email"]');
+
+
+        //----------------------------------------validando email----------------------------------------------------
+        if(!email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+            var emailInput = document.querySelector('.input-box input[type="text"][name="email"]');
             emailInput.style.borderColor = 'red'
             var errorEmail = document.querySelector("#error-email")
             errorEmail.style.display = 'block'
             email.focus();
             return false;
+        }else{
+            var emailInput = document.querySelector('.input-box input[type="text"][name="email"]');
+            emailInput.style.borderColor = '';
+            var errorEmail = document.querySelector("#error-email");
+            errorEmail.style.display = 'none';
         }
+
+
+        //----------------------------------------validando telefone----------------------------------------------------
         if(!isPhone(phone.value)){
-            alert('Phone number invalid');
-            phone.focus();
+            var phoneInput = document.querySelector('.input-box input[type="tel"][name="phone"]');
+            phoneInput.style.borderColor = 'red'
+            var errorPhone = document.querySelector("#error-phone")
+            errorPhone.style.display = 'block'
+            email.focus();
             return false;
+        }else{
+            var phoneInput = document.querySelector('.input-box input[type="tel"][name="phone"]');
+            phoneInput.style.borderColor = '';
+            var errorPhone = document.querySelector("#error-email");
+            errorPhone.style.display = 'none';
         }
+
+        //----------------------------------------validando senha------------------------------------------------------
         if(!isPassword(password.value)){
-            alert('Invalid Password. Must have between 6-20 characters and at least one capital , one lowercase and a number.');
+            var passwordInput = document.querySelector('.input-box input[type="password"][name="pass"]');
+            passwordInput.style.borderColor = 'red'
+            var errorPassword = document.querySelector("#error-password")
+            errorPassword.style.display = 'block'
             password.focus();
             password.value='';
-            password.style.backgroundColor='red';
             return false;
+        }else{
+            var passwordInput = document.querySelector('.input-box input[type="password"][name="pass"]');
+            passwordInput.style.borderColor = '';
+            var errorPassword = document.querySelector("#error-password");
+            errorPassword.style.display = 'none';
         }
+
+
+        //----------------------------------------validando genero------------------------------------------------------
         if(!(masculino.checked || feminino.checked || outros.checked)){
-            alert('Por favor , informar genero.');
-            return false;
-        }
-        if(password.value != confirm_pass.value){
-            alert('Passwords don\'t match');
+            var errorGender = document.querySelector("#error-genero");
+            errorGender.style.display = 'block';
             return false
+
+        }else{
+            var errorGender = document.querySelector("#error-genero");
+            errorGender.style.display = 'none';
+        }
+        //----------------------------------------validando senha iguais------------------------------------------------
+        if(password.value != confirm_pass.value){
+            var confirmPasswordInput = document.querySelector('.input-box input[type="password"][name="confirmPassword"]');
+            confirmPasswordInput.style.borderColor = 'red'
+            var errorConfirmPassword = document.querySelector("#error-confirmPassword")
+            errorConfirmPassword.style.display = 'block'
+            password.focus();
+            confirm_pass.value='';
+            return false;
+        }else{
+            var confirmPasswordInput = document.querySelector('.input-box input[type="password"][name="confirmPassword"]');
+            confirmPasswordInput.style.borderColor = '';
+            var errorConfirmPassword = document.querySelector("#error-confirmPassword");
+            errorConfirmPassword.style.display = 'none';
         }
 
         return true;
