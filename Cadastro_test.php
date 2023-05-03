@@ -42,15 +42,26 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label for="firstname">Primeiro Nome</label>
                     <input id="firstname" type="text" name="first_name" placeholder="Digite seu primeiro nome" required>
+                    <p id="error-name" style="font-size: 10px; display: none">
+                        *O nome nao pode conter numeros e simbolos<br>
+                        *O nome deve possouir mais que 3 caracteres
+                    </p>
                 </div>
 
                 <div class="input-box">
                     <label for="lastname">Sobrenome</label>
                     <input id="lastname" type="text" name="last_name" placeholder="Digite seu sobrenome" required>
+                    <p id="error-last-name" style="font-size: 10px; display: none">
+                        *O sobrenome nao pode conter numeros e simbolos<br>
+                        *O sobrenome deve possuir mais que 3 caracteres
+                    </p>
                 </div>
                 <div class="input-box">
                     <label for="email">E-mail</label>
                     <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                    <p id="error-email" style="font-size: 10px; display: none">
+                        *Digite um email valido<br>
+                    </p>
                 </div>
 
                 <div class="input-box">
@@ -152,17 +163,26 @@ if(isset($_SESSION['duplicate'])){
         let confirm_pass = document.getElementById('confirmPassword');
 
         if (first.value.length<3 || !allLetter(first)){
-            alert('First name is incorrect.');
+            var firstNameInput = document.querySelector('.input-box input[type="text"][name="first_name"]');
+            firstNameInput.style.borderColor = 'red'
+            var errorName = document.querySelector("#error-name")
+            errorName.style.display = 'block'
             first.focus();
             return false;
         }
-        if (last.value.length<3 || !allLetter(first)){
-            alert('Last name is incorrect.')
+        if (last.value.length<3 || !allLetter(last)){
+            var lastNameInput = document.querySelector('.input-box input[type="text"][name="last_name"]');
+            lastNameInput.style.borderColor = 'red'
+            var errorLastName = document.querySelector("#error-last-name")
+            errorLastName.style.display = 'block'
             last.focus();
             return false;
         }
         if(!isEmail(email.value)){
-            alert('Please input a valid email.');
+            var emailInput = document.querySelector('.input-box input[type="email"][name="email"]');
+            emailInput.style.borderColor = 'red'
+            var errorEmail = document.querySelector("#error-email")
+            errorEmail.style.display = 'block'
             email.focus();
             return false;
         }
