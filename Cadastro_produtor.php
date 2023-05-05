@@ -38,44 +38,65 @@ if(isset($_SESSION['duplicate'])){
                 </div>
             </div>
 
-            
-
             <div class="input-group">
                 <div class="input-box">
                     <label for="nome_empresa">Nome Empresa</label>
                     <input id="nome_empresa" type="text" name="nome_empresa" placeholder="Digite o nome da empresa" required>
+                    <p id="error-name-empresa" style="font-size: 10px; display: none">
+                        *O nome da empresa nao pode conter numeros e caracteres especiais<br>
+                        *O nome deve possouir mais que 3 caracteres
+                    </p>
                 </div>
 
             
                 <div class="input-box">
                     <label for="email">E-mail</label>
-                    <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                    <input id="email" type="text" name="email" placeholder="Digite seu e-mail" required>
+                    <p id="error-email" style="font-size: 10px; display: none">
+                        *Digite um email valido<br>
+
+                    </p>
                 </div>
 
                 <div class="input-box">
                     <label for="number">Celular</label>
-                    <input id="number" type="tel" name="phone" placeholder="(xx) xxxx-xxxx" required>
+                    <input id="number" type="text" name="phone" placeholder="(xx) xxxx-xxxx" required>
+                    <p id="error-phone" style="font-size: 10px; display: none">
+                        *Digite um telefone valido<br>
+
+                    </p>
                 </div>
 
                 <div class="input-box">
                     <label for="CNPJ">CNPJ</label>
-                    <input id="CNPJ" type="CNPJ" name="cnpj" placeholder="00.000.000/0000-00" required>
+                    <input id="CNPJ" type="text" name="cnpj" placeholder="00.000.000/0000-00" required>
+                    <p id="error-cnpj" style="font-size: 10px; display: none">
+                        *Digite um CNPJ valido<br>
+
+                    </p>
                 </div>
 
                 <div class="input-box">
                     <label for="password">Senha</label>
                     <input id="password" type="password" name="pass" placeholder="Digite sua senha" required>
+                    <p id="error-password" style="font-size: 10px; display: none">
+                        *a senha deve conter pelo menos um caracter maiusculo<br>
+                        *a senha deve conter pelo menos um caractere especial<br>
+                        *a senha deve ter pelo menos 6 digitos
+                    </p>
                 </div>
 
 
                 <div class="input-box">
                     <label for="confirmPassword">Confirme sua Senha</label>
                     <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
+                    <p id="error-confirmPassword" style="font-size: 10px; display: none">
+                        *as senhas devem ser igual<br>
+                    </p>
                 </div>
 
             </div>
 
-            
             <div class="continue-button">
                 <input type="submit" value="Continuar">
             </div>
@@ -126,8 +147,8 @@ if(isset($_SESSION['duplicate'])){
  if (cnpj.length != 14)
      return false;
 
- 
- if (cnpj == "00000000000000" || 
+
+ if (cnpj == "00000000000000" ||
      cnpj == "11111111111111" || 
      cnpj == "22222222222222" || 
      cnpj == "33333333333333" || 
@@ -171,47 +192,104 @@ if(isset($_SESSION['duplicate'])){
  
 }
 
+    const first=document.getElementById('nome_empresa');
+    const email=document.getElementById('email');
+    const phone=document.getElementById('number');
+    const password=document.getElementById('password');
+    const cnpj = document.getElementById('CNPJ');
+    const confirm_pass = document.getElementById('confirmPassword');
+
     function validate(){
-
-        let first=document.getElementById('nome_empresa');
-        let email=document.getElementById('email');
-        let phone=document.getElementById('number');
-        let password=document.getElementById('password');
-        let cnpj = document.getElementById('CNPJ');
-       let confirm_pass = document.getElementById('confirmPassword');
-      
-
+//----------------------------------------validando nome-empresa--------------------------------------------------
         if (first.value.length<3 || !allLetter(first)){
-            alert('First name is incorrect.');
+            var NameEmpresaInput = document.querySelector('.input-box input[type="text"][name="nome_empresa"]');
+            NameEmpresaInput.style.borderColor = 'red'
+            var errorNomeEmpresa = document.querySelector("#error-name-empresa")
+            errorNomeEmpresa.style.display = 'block'
             first.focus();
             return false;
+        }else {
+            var NameEmpresaInput = document.querySelector('.input-box input[type="text"][name="nome_empresa"]');
+            NameEmpresaInput.style.borderColor = '';
+            var errorNomeEmpresa = document.querySelector("#error-name-empresa");
+            errorNomeEmpresa.style.display = 'none';
         }
+
+        //----------------------------------------validando CNPJ--------------------------------------------------
         if (!validarCNPJ(cnpj.value)){
-            alert('CNPJ is wrong.')
-            CNPJ.focus();
+            var cnpjInput = document.querySelector('.input-box input[type="text"][name="cnpj"]');
+            cnpjInput.style.borderColor = 'red'
+            var errorCnpj = document.querySelector("#error-cnpj")
+            errorCnpj.style.display = 'block'
+            first.focus();
             return false;
-        } 
+        }else {
+            var cnpjInput = document.querySelector('.input-box input[type="text"][name="cnpj"]');
+            cnpjInput.style.borderColor = '';
+            var errorCnpj = document.querySelector("#error-cnpj");
+            errorCnpj.style.display = 'none';
+        }
+
+        //----------------------------------------validando email--------------------------------------------------
         if(!isEmail(email.value)){
-            alert('Please input a valid email.');
-            email.focus();
+            var emailInput = document.querySelector('.input-box input[type="text"][name="email"]');
+            emailInput.style.borderColor = 'red'
+            var errorEmail = document.querySelector("#error-email")
+            errorEmail.style.display = 'block'
+            first.focus();
             return false;
+        }else {
+            var emailInput = document.querySelector('.input-box input[type="text"][name="email"]');
+            emailInput.style.borderColor = '';
+            var errorEmail = document.querySelector("#error-email");
+            errorEmail.style.display = 'none';
         }
+
+        //----------------------------------------validando telefone--------------------------------------------------
         if(!isPhone(phone.value)){
-            alert('Phone number invalid');
-            phone.focus();
+            var phoneInput = document.querySelector('.input-box input[type="text"][name="phone"]');
+            phoneInput.style.borderColor = 'red'
+            var errorPhone = document.querySelector("#error-phone")
+            errorPhone.style.display = 'block'
+            first.focus();
             return false;
+        }else {
+            var phoneInput = document.querySelector('.input-box input[type="text"][name="phone"]');
+            phoneInput.style.borderColor = '';
+            var errorPhone = document.querySelector("#error-phone");
+            errorPhone.style.display = 'none';
         }
+
+        //----------------------------------------validando password--------------------------------------------------
         if(!isPassword(password.value)){
-            alert('Invalid Password. Must have between 6-20 characters and at least one capital , one lowercase and a number.');
+            var passwordInput = document.querySelector('.input-box input[type="password"][name="pass"]');
+            passwordInput.style.borderColor = 'red'
+            var errorPassword = document.querySelector("#error-password")
+            errorPassword.style.display = 'block'
             password.focus();
             password.value='';
-            password.style.backgroundColor='red';
             return false;
+        }else {
+            var passwordInput = document.querySelector('.input-box input[type="password"][name="pass"]');
+            passwordInput.style.borderColor = '';
+            var errorPassword = document.querySelector("#error-password");
+            errorPassword.style.display = 'none';
         }
-        
+
+        //----------------------------------------validando senhas iguais--------------------------------------------------
         if(password.value != confirm_pass.value){
-            alert('Passwords don\'t match');
+            var confirmPasswordInput = document.querySelector('.input-box input[type="password"][name="confirmPassword"]');
+            confirmPasswordInput.style.borderColor = 'red'
+            var errorConfirmPassword = document.querySelector("#error-confirmPassword")
+            errorConfirmPassword.style.display = 'block'
+            password.focus();
+            confirm_pass.value='';
             return false
+        }else{
+            var confirmPasswordInput = document.querySelector('.input-box input[type="password"][name="confirmPassword"]');
+            confirmPasswordInput.style.borderColor = '';
+            var errorConfirmPassword = document.querySelector("#error-confirmPassword");
+            errorConfirmPassword.style.display = 'none';
         }
 
         return true;
