@@ -1,7 +1,20 @@
 <?php
 session_start();
 
-
+if(isset($_SESSION['update']) && $_SESSION['update']){
+    ?><script>
+     alert ('Infos updated successfully.');
+     </script>
+     <?php
+     unset($_SESSION['update']);
+}
+if(isset($_SESSION['update']) && !$_SESSION['update']){
+    ?><script>
+     alert ('Infos could not be updated.');
+     </script>
+     <?php
+     unset($_SESSION['update']);
+}
 
 if($_SESSION['is_produtor']){
 $first_name_prod =  isset($_SESSION['infos_pessoa_prod']['nome_empresa']) ? $_SESSION['infos_pessoa_prod']['nome_empresa'] : "" ;
@@ -72,9 +85,9 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
 <h1 style="margin-top:20px;font-size:20px;"><?php if($_SESSION['is_produtor']){
 
     
-    echo 'Welcome Produtor '.$first_name_prod;}
+    echo 'Bem Vindo Produtor:  '.$first_name_prod;}
     else{ 
-        echo 'Welcome Comprador '.$first_name.' '.$last_name;
+        echo 'Bem Vindo Comprador:  '.$first_name.' '.$last_name;
     } ?></h1>
 <button name="Edit Profile" style="width: 100px;height: 50px; border-radius: 20px;color: white;margin-top: 20px;background-color:green;cursor:pointer;" onclick="toInfo()">Edit Profile</button>
 </div>

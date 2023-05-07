@@ -103,6 +103,66 @@ header .fa-bars{
     border:.1rem solid rgba(0,0,0,.3);
     display: none;
 }
+table {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    border-spacing: 10px;
+
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+
+}
+
+th {
+    font-weight: bold;
+}
+
+
+
+td button {
+    border: none;
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+td button.edit-btn {
+    background-color: #4CAF50;
+}
+
+td button:hover {
+    background-color: #555;
+}
+
+td button:active {
+    background-color: #f44336;
+}
+.delete-btn, .edit-btn {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
 
 .home{
     display: flex;
