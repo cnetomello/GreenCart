@@ -1,6 +1,23 @@
 <?php
 session_start();
 
+if(isset($_SESSION['anuncio_criado']) && $_SESSION['anuncio_criado']){
+    ?><script>
+     alert ('Anuncio registrado com sucesso.');
+     </script>
+     <?php
+     unset($_SESSION['anuncio_criado']);
+}
+
+if(isset($_SESSION['anuncio_criado']) && !$_SESSION['anuncio_criado']){
+    ?><script>
+     alert ('Anuncio nao registrado por causa de uma falha');
+     </script>
+     <?php
+     unset($_SESSION['anuncio_criado']);
+}
+
+
 if(isset($_SESSION['update']) && $_SESSION['update']){
     ?><script>
      alert ('Infos updated successfully.');
@@ -89,7 +106,12 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
     else{ 
         echo 'Bem Vindo Comprador:  '.$first_name.' '.$last_name;
     } ?></h1>
-<button name="Edit Profile" style="width: 100px;height: 50px; border-radius: 20px;color: white;margin-top: 20px;background-color:green;cursor:pointer;" onclick="toInfo()">Edit Profile</button>
+<div style="display:inline-block;margin-top:20px;">    
+<button name="Edit Profile" style="width: 100px;height: 50px; border-radius: 20px;color: white;background-color:green;cursor:pointer;" onclick="toInfo()">Edit Profile</button>
+<?php if($_SESSION['is_produtor']){?>
+<button name="Registrar Produto" style="width: 200px;height: 50px; border-radius: 20px;color: white;background-color:green;cursor:pointer;" onclick="toAnuncio()">Registrar Anuncio</button>
+<?php }?>
+</div>
 </div>
 
 
@@ -107,6 +129,9 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
     }
     function toInfo(){
         window.location.href='Info_User.php';
+    }
+    function toAnuncio(){
+        window.location.href='Registrar_anuncio.php'
     }
 </script>
 <div style="display: flex;justify-content:center;align-items:center;margin-top:20px;">
