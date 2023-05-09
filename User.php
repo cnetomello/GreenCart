@@ -135,7 +135,7 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
     }
 </script>
 <div style="display: flex;justify-content:center;align-items:center;margin-top:20px;">
-<button style="font-size:30px;background:green;border-radius:3px;color:aliceblue;cursor:pointer;" onclick="ret();" id='logout' >Logout</button>
+<button style="font-size:35px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="ret();" id='logout' >Logout</button>
 </div>
 
         </body>
