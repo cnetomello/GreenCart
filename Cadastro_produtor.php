@@ -11,14 +11,26 @@
 </head>
 <?php
 session_start();
-if(isset($_SESSION['duplicate'])){
+if(isset($_SESSION['duplicate_cnpj'])){
+?>
+<script>
+    alert('Cnpj already registered.')
+
+</script>
+ <?php
+    unset($_SESSION['duplicate_cnpj']);    }
+
+        ?>
+<?php
+
+if(isset($_SESSION['duplicate_email'])){
 ?>
 <script>
     alert('Email already registered.')
 
 </script>
  <?php
-    unset($_SESSION['duplicate']);    }
+    unset($_SESSION['duplicate_email']);    }
 
         ?>
 

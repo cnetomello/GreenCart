@@ -9,12 +9,19 @@ $password=$_POST['pass'];
 
 
 
-$sql1= "Select email from infos where email='$email'";
-$result= $conn->query($sql1);
-if($result->num_rows >0){
+$sql1= "Select email_prod from infos_prod where email_prod='$email'";
+$sql2=  "Select cnpj from infos_prod where cnpj='$cnpj'";
+$result_email= $conn->query($sql1);
+$result_cnpj= $conn->query($sql2);
+if($result_email->num_rows >0){
         session_start();
-        $_SESSION['duplicate']=True;
+        $_SESSION['duplicate_email']=True;
         header('Location: Cadastro_produtor.php');
+}
+elseif($result_cnpj->num_rows > 0){
+    session_start();
+    $_SESSION['duplicate_cnpj']=True;
+    header('Location: Cadastro_produtor.php');
 }
 
 else{
