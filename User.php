@@ -119,14 +119,19 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
 <script>
     function ret(){
         let c= confirm('Are you sure you want to log out ?');
-        if(c){
-            <?php unset($_SESSION['firstname']);
-            unset($_SESSION['lastname1']);
+        if(c && $_SESSION['is_produtor']){
+            <?php unset($_SESSION['infos_pessoa_prod']);
             ?>
             window.location.href='Login_test.php';
         }
-        
+        else if(c && ! $_SESSION['is_produtor']){
+        <?php unset($_SESSION['infos_pessoa']);
+            ?>
+            window.location.href='Login_test.php';
+        }
     }
+        
+    
     function toInfo(){
         window.location.href='Info_User.php';
     }
