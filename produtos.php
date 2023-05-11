@@ -30,11 +30,25 @@ if(isset($_SESSION['name']) && isset($_SESSION['lastname'])){
                     border: 1px solid #ddd;
                     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
                     padding: 10px;
-                    display: inline-block;
-                    vertical-align: top;
+                    display: inline-flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .card img {
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                .card h3,
+                .card p {
+                    text-align: center;
                 }
             </style>
-        
+
+
+
         </head>
         <body>
 
@@ -91,9 +105,12 @@ if(isset($_SESSION['name']) && isset($_SESSION['lastname'])){
                                 echo '<div class="row">';
                             }
                             echo '<div class="card">';
+                            echo '<img src="images/AMEIXA.PNG" width="35%" style="">';
                             echo '<h3>' . $row["nome_produto"] . '</h3>';
                             echo $row["descricao"] . '<br>';
+                            echo '<div class="price">';
                             echo 'R$:' . $row["preco_unitario"];
+                            echo '</div>';
                             echo '</div>';
                             $count ++;
                             if ($count % 1 != 0){
