@@ -23,7 +23,7 @@ if($_SESSION['is_produtor']){
         table {
             border-collapse: collapse;
             width: 300%;
-            max-width: 1000px;
+            max-width: 1000%;
             margin: 0 auto;
 
         }
@@ -130,7 +130,8 @@ if($_SESSION['is_produtor']){
             echo "<td>" . $row["qtd_produto"] . "</td>";
             echo "<td>" . $row["data_colheta"] . "</td>";
             echo "<td>" . $row["preco_unitario"] . "</td>";
-            echo "<td> <a href='#' class='btn-excluir'>excluir</a>  </td>";
+
+            echo "<td> <a href='excluir_anuncio.php?id=" . $row['id_anuncio'] . "' class='btn-excluir'>excluir</a> </td>";
             echo "<td> <a href='#' class='btn-editar'>Editar</a>  </td>";
 
             echo "</tr>";
