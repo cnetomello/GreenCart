@@ -71,8 +71,4 @@ if(isset($_SESSION['created'])){
 <?php
     unset($_SESSION['created']);}
     
-    if(isset($_SESSION['infos_pessoa_prod']) || isset($_SESSION['infos_pessoa'])){
-      session_destroy();
-      
-      }
 ?>
