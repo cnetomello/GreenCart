@@ -1,11 +1,4 @@
-<?php
-session_start();
-if(isset($_SESSION['name']) && isset($_SESSION['lastname'])){
-    $_SESSION['firstname']=$_SESSION['name'];
-    $_SESSION['lastname1']=$_SESSION['lastname'];
-    }
-    $_SESSION['infos']= $_SESSION['infos_pessoa']; 
-?>
+
 <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -19,7 +12,46 @@ if(isset($_SESSION['name']) && isset($_SESSION['lastname'])){
         
             <!-- custom css file link  -->
             <link rel="stylesheet" href="CSS/produtos.css">
-        
+            <style>
+                .card {
+                    width: 30%;
+                    margin-right: 2%;
+                    margin-bottom: 2%;
+                    border: 1px solid #ddd;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                    padding: 10px;
+                    display: inline-flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .card img {
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                .card h3{
+                    text-align: center;
+                    font-size: 150%;
+                    color:#73AB44;
+                    font-weight: bolder;
+                }
+                .card p {
+                    text-align: center;
+
+
+                }
+                .price{
+                    font-size: 200%;
+                    color:#73AB44;
+                    font-weight: bolder;
+                    padding-top: 1rem;
+                }
+            </style>
+
+
+
         </head>
         <body>
 
@@ -59,26 +91,42 @@ if(isset($_SESSION['name']) && isset($_SESSION['lastname'])){
             </pre>
 
             <section class="products" id="products">
-
                 <h1 class="heading"> Produtos <span>disponíveis</span> </h1>
+                <?php
+                include('connexion.php');
 
-                <div class="box-container">
+                $sql = "SELECT * FROM anuncio_infos";
+                $result = $conn->query($sql);
 
-                    <div class="box">
-                        <span class="discount">-20%</span>
-                        <div class="image">
-                            <img src="images/caixa morango.png" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>MORANGO CAIXA (4 BANDEJAS)</h3>
-                            <div class="price"> R$14.99 <span>R$19.99</span> </div>
-                        </div>
-                    </div>
+                ?>
+
+                    <?php
+                    if ($result->num_rows > 0 ){
+                        $count = 0;
+                        while ($row = $result->fetch_assoc()){
+                            if($count % 3 == 0){
+                                echo '<div class="row">';
+                            }
+                            echo '<div class="card">';
+                            echo '<img src="images/AMEIXA.PNG" width="35%" style="">';
+                            echo '<h3>' . $row["nome_produto"] . '</h3>';
+                            echo $row["descricao"] . '<br>';
+                            echo '<div class="price">';
+                            echo 'R$:' . $row["preco_unitario"];
+                            echo '</div>';
+                            echo '</div>';
+                            $count ++;
+                            if ($count % 1 != 0){
+                                echo '</div>';
+                            }
+
+                        }
+                    };
+                    ?>
+
+
+
+                    <!--
 
                     <div class="box">
                         <span class="discount">-15%</span>
@@ -245,6 +293,7 @@ if(isset($_SESSION['name']) && isset($_SESSION['lastname'])){
                     </div>
 
                 </div>
+                -->
 
             </section>
 
