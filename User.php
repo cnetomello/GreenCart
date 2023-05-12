@@ -1,5 +1,12 @@
 <?php
 session_start();
+if(!(isset($_SESSION['infos_pessoa_prod'])) && !(isset($_SESSION['infos_pessoa']))){
+    header('Location: Login_test.php');
+}
+
+$_SESSION['id_session']= session_id();
+
+
 
 if(isset($_SESSION['anuncio_criado']) && $_SESSION['anuncio_criado']){
     ?><script>
@@ -119,14 +126,7 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
 <script>
     function ret(){
         let c= confirm('Are you sure you want to log out ?');
-        if(c && $_SESSION['is_produtor']){
-            <?php unset($_SESSION['infos_pessoa_prod']);
-            ?>
-            window.location.href='Login_test.php';
-        }
-        else if(c && ! $_SESSION['is_produtor']){
-        <?php unset($_SESSION['infos_pessoa']);
-            ?>
+        if(c){
             window.location.href='Login_test.php';
         }
     }

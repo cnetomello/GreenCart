@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,6 +40,21 @@ session_start();
 </html>
 
 <?php
+session_start();
+
+
+if($_SESSION['removed']){
+    ?>
+    <script> alert('Account deleted.') </script>
+    <?php
+}
+if($_SESSION['not_removed']){
+    ?>
+    <script> alert('Account couldn\'t be deleted.') </script>
+    <?php
+}
+  
+
 if (isset($_SESSION['message'])){
     ?>
 <script>
@@ -57,4 +70,9 @@ if(isset($_SESSION['created'])){
 </script>
 <?php
     unset($_SESSION['created']);}
-    ?>
+    
+    if(isset($_SESSION['infos_pessoa_prod']) || isset($_SESSION['infos_pessoa'])){
+      session_destroy();
+      
+      }
+?>
