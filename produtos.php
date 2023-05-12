@@ -31,9 +31,22 @@
                     margin: 0 auto;
                 }
 
-                .card h3,
+                .card h3{
+                    text-align: center;
+                    font-size: 150%;
+                    color:#73AB44;
+                    font-weight: bolder;
+                }
                 .card p {
                     text-align: center;
+
+
+                }
+                .price{
+                    font-size: 200%;
+                    color:#73AB44;
+                    font-weight: bolder;
+                    padding-top: 1rem;
                 }
             </style>
 
