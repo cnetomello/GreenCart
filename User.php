@@ -55,15 +55,12 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
 
             <!-- custom css file link  -->
             <link rel="stylesheet" href="CSS/index.css">
-            
-           
+
+
 
         </head>
         <body>
-            
 
-
-            
         <!-- header section starts  -->
 
             <header>
@@ -89,12 +86,8 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
                     <a href="User.php" data-modal-target="#modal" class="fas fa-user"></a>
                     
                 </div>
-               
-
-  </div>
-  
             </header>
-            <section class="home" id="home">
+        <section class="home" id="home">
 
 
 <div class="content">
@@ -106,10 +99,11 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
     else{ 
         echo 'Bem Vindo Comprador:  '.$first_name.' '.$last_name;
     } ?></h1>
-<div style="display:inline-block;margin-top:20px;">    
-<button name="Edit Profile" style="width: 100px;height: 50px; border-radius: 20px;color: white;background-color:green;cursor:pointer;" onclick="toInfo()">Edit Profile</button>
+<div style="display:flex;margin-top:20px;">
+<button name="Edit Profile" style="margin-right: 20px; width: 100px;height: 50px; border-radius: 10px;color: white;background-color:green;cursor:pointer;" onclick="toInfo()">Editar Perfil</button>
 <?php if($_SESSION['is_produtor']){?>
-<button name="Registrar Produto" style="width: 200px;height: 50px; border-radius: 20px;color: white;background-color:green;cursor:pointer;" onclick="toAnuncio()">Registrar Anuncio</button>
+    <button name="Registrar Produto" style="margin-right: 20px; width: 200px;height: 50px; border-radius: 10px;color: white;background-color:green;cursor:pointer;" onclick="toAnuncio()">Registrar Anuncio</button>
+    <button name="Editar Produtos" style="margin-right: 20px; width: 200px;height: 50px; border-radius: 10px;color: white;background-color:green;cursor:pointer;" onclick="toEditAnuncio()">Editar Anuncio</button>
 <?php }?>
 </div>
 </div>
@@ -132,6 +126,9 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
     }
     function toAnuncio(){
         window.location.href='Registrar_anuncio.php'
+    }
+    function toEditAnuncio(){
+        window.location.href='Editar_anuncio.php'
     }
 </script>
 <div style="display: flex;justify-content:center;align-items:center;margin-top:20px;">
