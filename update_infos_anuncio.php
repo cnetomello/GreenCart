@@ -11,7 +11,7 @@ $new_preco_unitario = $_POST['new_preco_unitario'];
 
 $id_anuncio = $_GET['id'];
 
-$sql = "UPDATE anuncio_infos SET nome_produto='$new_nome_produto', qtd_produto='$new_qtd', descricao='$new_descricao', data_colheta='$new_data_colheta', preco_unitario='$new_data_colheta' WHERE id_anuncio=' $id_anuncio'";
+$sql = "UPDATE anuncio_infos SET nome_produto='$new_nome_produto', qtd_produto='$new_qtd', descricao='$new_descricao', data_colheta='$new_data_colheta', preco_unitario='$new_preco_unitario' WHERE id_anuncio=' $id_anuncio'";
 
 $result = $conn->query($sql);
 
