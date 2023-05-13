@@ -58,7 +58,7 @@ session_start();
             </header>
             <section class="home" id="home">
             
-            <form action="insert_anuncio.php" class="form-update-infos-produtor" method="POST"  onsubmit="return validar();"  style="display: block; margin-top:100px; margin-left: auto; margin-right:auto; padding: 20px; width: 30%;height:500px; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
+            <form action="insert_anuncio.php" class="form-update-infos-produtor" enctype="multipart/form-data" method="POST"  onsubmit="return validar();"  style="display: block; margin-top:100px; margin-left: auto; margin-right:auto; padding: 20px; width: 30%;height:500px; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
         <label for="nome_produto">Nome Produto:</label>
         <input type="text" id="nome_produto" name="nome_produto" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;" required>
         <p style="color:red;margin-bottom:10px;display:none;" id="nome_erro"> ** Nome de produto errado </p>
@@ -99,7 +99,7 @@ session_start();
 /(\.jpeg)$/i;
              
             if (!allowedExtensions.exec(filePath)) {
-                alert('Invalid file type (only png,jpeg and jpg )');
+                alert('Invalid file type (only jpeg)');
                 fileInput.value = '';
                 return false;
             }
