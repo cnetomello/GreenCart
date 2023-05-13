@@ -78,6 +78,9 @@ session_start();
         <label for="data_colheta_produto">Data de colheta:</label>
         <input type="date" id="data_colheta" name="data_colheta" min="2023-04-21" max="<?= date('Y-m-d'); ?>"  style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;" required>
         
+        <label for="foto_produto">Foto Produto:</label>
+        <input type="file" id="foto" name="foto_produto"  style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;" id="foto_prod" onchange="return fileValidation();" required>
+
         <input type="submit" value="Registrar Anuncio" style="background-color: #4CAF50; color: #fff; border: none; border-radius: 3px; padding: 10px 15px; cursor: pointer; font-size: 16px; margin-left: auto; margin-top: 50px; margin-right: auto; display: block;">
     </form>
 
@@ -85,6 +88,22 @@ session_start();
 
 </section>
 <script>
+    function fileValidation() {
+            var fileInput =
+                document.getElementById('foto');
+             
+            var filePath = fileInput.value;
+         
+            // Allowing file type
+            var allowedExtensions =
+/(\.jpeg)$/i;
+             
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type (only png,jpeg and jpg )');
+                fileInput.value = '';
+                return false;
+            }
+        }
 
     function allLetter(inputtxt)
     {

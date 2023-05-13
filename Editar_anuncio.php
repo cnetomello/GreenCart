@@ -127,9 +127,9 @@ if($_SESSION['is_produtor']){
 
             echo "<td>" . $row["nome_produto"] . "</td>";
             echo "<td>" . $row["descricao"] . "</td>";
-            echo "<td>" . $row["qtd_produto"] . "</td>";
+            echo "<td>" .  $row["qtd_produto"] . " und"."</td>";
             echo "<td>" . $row["data_colheta"] . "</td>";
-            echo "<td>" . $row["preco_unitario"] . "</td>";
+            echo "<td>" . "R$ " . $row["preco_unitario"] . "</td>";
 
             echo "<td> <a href='excluir_anuncio.php?id=" . $row['id_anuncio'] . "' class='btn-excluir'>excluir</a> </td>";
             echo "<td> <a href='#' class='btn-editar'>Editar</a>  </td>";
@@ -137,13 +137,41 @@ if($_SESSION['is_produtor']){
             echo "</tr>";
         }
         echo "</table>";
-        } else {
-            echo "voce ainda n tem nenhum produto cadastrado.";
-        }
-    ?>
+       ?>
+       <script>
+    function ret(){
+         let c= confirm('Are you sure you want to return ?');
+          if(c){
+              window.location.href='User.php';
+          }
+       }
+    </script>
+        <button style="font-size:30px;background:green;border-radius:3px;color:aliceblue;cursor:pointer; margin-left:600px;margin-top: 30px; width:300px;" onclick="ret();" id='return_user' >Return to User Page</button>
+       
+    <?php
+    } else {
+            echo "<div style='font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 30px;width:1000px;margin-left:500px;'>" ."Voce ainda nao tem nenhum produto cadastrado." . "</div>";
+        
 
+
+    ?>
+    <script>
+    function ret(){
+         let c= confirm('Are you sure you want to return ?');
+          if(c){
+              window.location.href='User.php';
+          }
+       }
+    </script>
+    
+    <button style="font-size:30px;background:green;border-radius:3px;color:aliceblue;cursor:pointer; margin-left:700px;margin-top: 30px; width:300px;" onclick="ret();" id='return_user' >Return to User Page</button>
+</div>
+<?php } ?>
     </div>
 </section>
+</body>
+
+</html>
 
 
 
