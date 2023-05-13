@@ -132,7 +132,7 @@ if($_SESSION['is_produtor']){
             echo "<td>" . "R$ " . $row["preco_unitario"] . "</td>";
 
             echo "<td> <a href='excluir_anuncio.php?id=" . $row['id_anuncio'] . "' class='btn-excluir'>excluir</a> </td>";
-            echo "<td> <a href='#' class='btn-editar'>Editar</a>  </td>";
+            echo "<td> <a href='editar.php?id=" .$row['id_anuncio'] . "' class='btn-editar'>Editar</a>  </td>";
 
             echo "</tr>";
         }
