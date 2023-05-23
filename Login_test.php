@@ -9,11 +9,9 @@
 </head>
 <body>
 <div class="main-login">
-    <div class="left-login">
-        
-        <img src="images/greencart_carrinho-removebg-preview.png" alt="Econetworking" class="left_image">
-    </div>
+    
     <div class="right-login">
+    <img src="images/greencart_carrinho-removebg-preview.png" alt="GreenCart" class="left_image">
         <div class="card-login">
             <h1>LOGIN</h1>
 
@@ -28,10 +26,11 @@
 
 
                 </div>
-                <input type="submit" class="btn-login" value="Login">
-                <a href="Cadastro_test.php" class="criar_conta">Nao tem uma Conta e voce e um comprador?Criar conta.</a><br><br>
-                <a href="Cadastro_produtor.php" class="criar_conta">Nao tem uma Conta e voce e um produtor?Criar conta.</a><br><br>
-                <a href="Admin.php" class="criar_conta">Admin.</a>
+                <input type="submit" class="btn-login" value="Login" style="font-size:20px">
+                <a style="color:#ffffff">Crie sua conta agora</a>
+                <a href="Cadastro_test.php" class="criar_conta">Comprador</a>
+                <a style="color:#ffffff">ou</a>
+                <a href="Cadastro_produtor.php" class="criar_conta">Produtor<a><br><br>
             </form>
         </div>
     </div>
