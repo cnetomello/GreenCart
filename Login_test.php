@@ -43,12 +43,12 @@
 session_start();
 
 
-if($_SESSION['removed']){
+if(isset($_SESSION['removed'])){
     ?>
     <script> alert('Account deleted.') </script>
     <?php
 }
-if($_SESSION['not_removed']){
+if(isset($_SESSION['not_removed'])){
     ?>
     <script> alert('Account couldn\'t be deleted.') </script>
     <?php
