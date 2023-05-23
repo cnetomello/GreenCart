@@ -182,7 +182,7 @@ session_start();
    
 </script>
 <div style="display: flex;justify-content:center;align-items:center;margin-top:20px;">
-<button style="font-size:30px;background:green;border-radius:3px;color:aliceblue;cursor:pointer;" onclick="ret();" id='return_user' >Return to User Page</button>
+<button style="font-size:30px;background:green;border-radius:20px;color:aliceblue;cursor:pointer;width: 330px; height: 55px;" onclick="ret();" id='return_user' >Return to User Page</button>
 </div>
 
 
