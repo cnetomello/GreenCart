@@ -108,7 +108,7 @@
                                 echo '<div class="row">';
                             }
                             echo '<div class="card">';
-                            echo '<img src="images/AMEIXA.PNG" width="35%" style="">';
+                            echo '<img src="imageView.php?image_id=' . $row["id_anuncio"] . '" width="35%" style="">';
                             echo '<h3>' . $row["nome_produto"] . '</h3>';
                             echo $row["descricao"] . '<br>';
                             echo '<div class="price">';
