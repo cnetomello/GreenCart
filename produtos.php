@@ -108,11 +108,11 @@
                                 echo '<div class="row">';
                             }
                             echo '<div class="card">';
-                            echo '<img  src="data:image/'. $row['tipo_foto'] . ';charset=utf8;base64,'. base64_encode($row['foto_produto']) .'" width="35%" style="">';
+                            echo '<img  src="data:image/'. $row['tipo_foto'] . ';charset=utf8;base64,'. base64_encode($row['foto_produto']) .'"  width="35%" height="150px">';
                             echo '<h3>' . $row["nome_produto"] . '</h3>';
                             echo $row["descricao"] . '<br>';
                             echo '<div class="price">';
-                            echo 'R$:' . $row["preco_unitario"];
+                            echo 'R$:' . $row["preco_unitario"] ;
                             echo '</div>';
                             echo '</div>';
                             $count ++;
