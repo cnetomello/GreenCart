@@ -48,6 +48,49 @@
                     font-weight: bolder;
                     padding-top: 1rem;
                 }
+
+                .comprar-botao {
+                    display: block;
+                    width: 100%;
+                    padding: 10px 0;
+                    background-color: #4CAF50;
+                    color: white;
+                    text-align: center;
+                    text-decoration: none;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    margin-top: 10px;
+                    border-radius: 5px;
+                }
+
+                .comprar-botao:hover {
+                    background-color: #45a049;
+                }
+
+                .popup {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    z-index: 9999;
+                }
+
+                .popup-card {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 400px;
+                    max-width: 90%;
+                    background-color: #fff;
+                    padding: 20px;
+                    border-radius: 4px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                }
             </style>
 
 
@@ -81,13 +124,6 @@
             </header>
             
             <pre>
-
-
-
-                <!-- criar espaco-->
-
-
-
             </pre>
 
             
@@ -130,6 +166,7 @@
                             echo '<div class="price">';
                             echo 'R$:' . $row["preco_unitario"] ;
                             echo '</div>';
+                            echo '<button class="comprar-botao" data-target="popup1">Comprar</button>';
                             echo '</div>';
                             $count ++;
                             if ($count % 1 != 0){
@@ -141,8 +178,26 @@
                     }
                     $conn->close();
                     ?>
+                <script>
+                    var comprarBotoes = document.querySelectorAll('.comprar-botao');
+                    comprarBotoes.forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            var target = this.dataset.target;
+                            var popup = document.getElementById(target);
+                            if (popup) {
+                                popup.style.display = 'block';
+                            }
+                        });
+                    });
+                </script>
+                <div id="popup1" class="popup" style="display: none">
+                    <div class="popup-card">
+                        testando popup
+                    </div>
+                </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                 <script type="text/javascript">
                     $(document).ready(function(){
                        $("#search_products").keyup(function(){
@@ -174,177 +229,6 @@
 
                     });
                 </script>
-
-
-
-                    <!--
-
-                    <div class="box">
-                        <span class="discount">-15%</span>
-                        <div class="image">
-                            <img src="images/AMEIXA.PNG" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>AMEIXA IMPORTADA (KG)</h3>
-                            <div class="price"> R$12.99 <span>R$15.99</span> </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <span class="discount">-15%</span>
-                        <div class="image">
-                            <img src="images/uva.jpg" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>UVA THOMPSON SEM SEMENTE (BANDEJA)</h3>
-                            <div class="price"> R$9.99 <span>R$14.99</span> </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <span class="discount">-50%</span>
-                        <div class="image">
-                            <img src="images/ALFACE.png" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>ALFACE AMERICANA (UNIDADE)</h3>
-                            <div class="price"> R$1.99 <span>R$2.99</span> </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <span class="discount">-17%</span>
-                        <div class="image">
-                            <img src="images/repolho.png" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>REPOLHO BRANCO</h3>
-                            <div class="price"> R$4.99 <span>R$5.99</span> </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="image">
-                            <img src="images/repolho roxo.png" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>REPOLHO ROXO</h3>
-                            <div class="price"> R$7.99</div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <span class="discount">-18%</span>
-                        <div class="image">
-                            <img src="images/CENOURA.png" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>CENOURA (Kg)</h3>
-                            <div class="price"> R$4.99 <span>R$6.99</span> </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <span class="discount">-10%</span>
-                        <div class="image">
-                            <img src="images/BATATA.png" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>BATATA (Kg)</h3>
-                            <div class="price"> R$3.99 <span>R$5.99</span> </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <span class="discount">-5%</span>
-                        <div class="image">
-                            <img src="images/BATATA DOCE.png" alt="">
-                            <div class="icons">
-                                <a href="#" class="fas fa-heart"></a>
-                                <a href="#" class="cart-btn">+ Carrinho</a>
-                                <a href="#" class="fas fa-share"></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>BATATA DOCE (Kg)</h3>
-                            <div class="price"> R$5.99 <span>R$7.99</span> </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <section class="footer">
-
-                <div class="box-container">
-
-                    <div class="box">
-                        <h3>Links rápidos</h3>
-                        <a href="index.php">Home</a>
-                        <a href="index.php">Sobre</a>
-                        <a href="avaliacoes.php">Avaliações</a>
-                        <a href="index.php">Contato</a>
-                    </div>
-
-                    <div class="box">
-                        <h3>Links extras</h3>
-                        <a href="#">Minha conta</a>
-                        <a href="#">Meu pedido</a>
-                        <a href="#">Favoritos</a>
-                    </div>
-
-                    <div class="box">
-                        <h3>Locais</h3>
-                        <a href="#">Paraná</a>
-                        <a href="#">Santa Catarina</a>
-                        <a href="#">Mato Grosso do Sul</a>
-                    </div>
-
-                    <div class="box">
-                        <h3>Informações para contato</h3>
-                        <a href="#">+55 (41) 99830-3237</a>
-                        <a href="#">contato@GreenCart.com</a>
-                        <a href="#">Curitiba > Paraná > Brasil - 37847654</a>
-                    </div>
-
-                </div>
-                -->
 
             </section>
 
