@@ -107,10 +107,10 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
         echo 'Bem Vindo Comprador:  '.$first_name.' '.$last_name;
     } ?></h1>
 <div style="display:flex;margin-top:20px;">
-<button name="Edit Profile" style="margin-right: 20px; width: 100px;height: 50px; border-radius: 10px;color: white;background-color:green;cursor:pointer;" onclick="toInfo()">Editar Perfil</button>
+<button name="Edit Profile" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toInfo()">Editar Perfil</button>
 <?php if($_SESSION['is_produtor']){?>
-    <button name="Registrar Produto" style="margin-right: 20px; width: 200px;height: 50px; border-radius: 10px;color: white;background-color:green;cursor:pointer;" onclick="toAnuncio()">Registrar Anuncio</button>
-    <button name="Editar Produtos" style="margin-right: 20px; width: 200px;height: 50px; border-radius: 10px;color: white;background-color:green;cursor:pointer;" onclick="toEditAnuncio()">Editar Anuncio</button>
+    <button name="Registrar Produto" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toAnuncio()">Registrar Anuncio</button>
+    <button name="Editar Produtos" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toEditAnuncio()">Editar Anuncio</button>
 <?php }?>
 </div>
 </div>
