@@ -166,7 +166,12 @@
                             echo '<div class="price">';
                             echo 'R$:' . $row["preco_unitario"] ;
                             echo '</div>';
-                            echo '<button class="comprar-botao" data-target="popup1">Comprar</button>';
+                            echo '<button class="comprar-botao" data-target="popup1" 
+                            data-product-nome="'. $row["nome_produto"].'"
+                            data-product-qtd="'. $row["qtd_produto"].'"
+                            data-product-id="'. $row["id_anuncio"].'"
+                            
+                            >Comprar</button>';
                             echo '</div>';
                             $count ++;
                             if ($count % 1 != 0){
@@ -186,13 +191,35 @@
                             var popup = document.getElementById(target);
                             if (popup) {
                                 popup.style.display = 'block';
+                                var produtoNome = button.dataset.productNome;
+                                var produtoQtd = button.dataset.productQtd;
+                                var anuncioIdProduto = button.dataset.productId;
+                                document.getElementById('popup-produto-nome').textContent = produtoNome;
+                                document.getElementById('popup-produto-qtd').textContent = produtoQtd;
+                                document.getElementById('popup-produto-id').textContent = anuncioIdProduto;
+
+
                             }
                         });
                     });
                 </script>
+
+                <!--pop-up-->
                 <div id="popup1" class="popup" style="display: none">
                     <div class="popup-card">
-                        testando popup
+                        <h2 id="popup-produto-nome"></h2>
+                        <form>
+                            <label>quantidade:</label>
+                            <input id="qtd" type="number" name="qtd" placeholder="0" required>
+                        </form>
+
+                        <!--
+                        <h2 id="popup-produto-qtd"></h2>
+                        <h2 id="popup-produto-id"></h2>
+                        -->
+
+
+                        <a href="produtos.php">  <button>voltar</button> </a>
                     </div>
                 </div>
 
