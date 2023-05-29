@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['removed'])){
     ?>
     <script>
-        alert('Account  has been  deleted successfully.');
+        alert('Usuário deletado com sucesso.');
     </script>
 <?php
     unset($_SESSION['removed']);
@@ -12,7 +12,7 @@ if(isset($_SESSION['removed'])){
 elseif (isset($_SESSION['not_removed'])){
     ?>
     <script>
-        alert('Account not found try again.')
+        alert('O usuário não foi encontrado, tente novamente.')
     </script>
 
 
@@ -22,7 +22,7 @@ elseif (isset($_SESSION['not_removed'])){
 if(isset($_SESSION['phone'])){
     ?>
     <script>
-        alert('Phone number updated successfully')
+        alert('Número de telefone atualizado com sucesso.')
     </script>
 
     <?php
@@ -32,7 +32,7 @@ if(isset($_SESSION['phone'])){
 elseif(isset($_SESSION['firstnameupd'])){
     ?>
     <script>
-        alert('First name updated successfully')
+        alert('Nome atualizado com sucesso.')
     </script>
 
     <?php
@@ -42,7 +42,7 @@ elseif(isset($_SESSION['lastnameupd'])){
 
     ?>
     <script>
-        alert('Last name updated successfully')
+        alert('Sobrenome atualizado com sucesso.')
     </script>
 
     <?php
@@ -51,7 +51,7 @@ elseif(isset($_SESSION['lastnameupd'])){
 elseif(isset($_SESSION['fail_upd'])){
     ?>
     <script>
-    alert('Update failed , try again.');
+    alert('Não foi possível atualizar as informações, tente novamente.');
     </script>
     <?php
     unset($_SESSION['fail_upd']);
@@ -186,7 +186,7 @@ $result= $conn->query($sql);
         function notnull(){
             let id= document.getElementById('id_remove');
             if (id.value=='' || isNaN(id.value)){
-                alert('Please put a valid number in the id section.')
+                alert('Por favor, insira um id válido.')
                 id.focus();
                 id.value='';
                 return false;
@@ -199,7 +199,7 @@ $result= $conn->query($sql);
         function notnull1(){
             let id= document.getElementById('id_update');
             if (id.value=='' || isNaN(id.value)){
-                alert('Please put a valid number in the id column.')
+                alert('Por favor, insira um id válido.')
                 id.focus();
                 id.value='';
                 return false;
@@ -211,7 +211,7 @@ $result= $conn->query($sql);
         function notnull2(){
             let id= document.getElementById('new_vlw');
             if (id.value==''){
-                alert('Please put a valid new value.')
+                alert('Por favor, insire um novo valor válido.')
                 id.focus();
                 return false;
 
@@ -223,7 +223,7 @@ $result= $conn->query($sql);
 
 <div>
 <div style="display: flex; justify-content:center;">
-    <form action="Delete.php" method="post" onsubmit="return   (notnull()  && confirm('Are you sure you want to remove?'));" >
+    <form action="Delete.php" method="post" onsubmit="return   (notnull()  && confirm('Você tem certeza que deseja deletar esse usuário?'));" >
 <input type="text" name="id_remove" placeholder="Id you want to remove." id="id_remove" style="font-size: 1.8em;">
 <input type="submit" value="Remove" class="ok" >
 
@@ -232,7 +232,7 @@ $result= $conn->query($sql);
 <div style="display: flex;margin-top:10px;">
     </form>
 
-    <form action="Update.php" method="post" onsubmit="return notnull1() && notnull2() && confirm('Are you sure you want to update this field?');">
+    <form action="Update.php" method="post" onsubmit="return notnull1() && notnull2() && confirm('Você tem certeza que deseja atualizar esse campo?');">
     <label for="field" >Choose field:</label>
     <select id="field" style="width: 100px;height:50px;" name="field">
         <option value="phone">phone</option>

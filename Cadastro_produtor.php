@@ -52,11 +52,11 @@ if(isset($_SESSION['duplicate_email'])){
 
             <div class="input-group">
                 <div class="input-box">
-                    <label for="nome_empresa">Nome Empresa</label>
+                    <label for="nome_empresa">Nome da empresa:</label>
                     <input id="nome_empresa" type="text" name="nome_empresa" placeholder="Digite o nome da empresa" required>
                     <p id="error-name-empresa" style="font-size: 10px; display: none">
-                        *O nome da empresa nao pode conter numeros e caracteres especiais<br>
-                        *O nome deve possouir mais que 3 caracteres
+                        *O nome da empresa não deve conter números nem caracteres especiais.<br>
+                        *O nome da empresa deve possuir mais que 3 caracteres.
                     </p>
                 </div>
 

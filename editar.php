@@ -67,19 +67,19 @@ if($result->num_rows > 0){
 
 <div class="content">
     <form class="form-update-infos-anuncio" method="POST" action="update_infos_anuncio.php?id=<?php echo $id_anuncio;?>" style=" margin: 20px; padding: 20px; width: 100%; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
-        <label for="nome">Nome Produto: </label>
+        <label for="nome">Nome do Produto: </label>
         <input type="text" id="nome_produto" name="new_nome_produto" value="<?php echo $nome_produto ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
 
-        <label for="qutd_produto">quantidade: </label>
+        <label for="qutd_produto">Quantidade (Unidades): </label>
         <input type="text" id="qtd_produto" name="new_qtd" value="<?php echo $qtd_produto ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
 
-        <label for="descricao">descricao: </label>
+        <label for="descricao">Descrição do produto: </label>
         <input type="text" id="descricao" name="new_descricao" value="<?php echo $descricao ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
 
-        <label for="data_colheta">data colheita: </label>
+        <label for="data_colheta">Data da colheita: </label>
         <input type="date" id="data_colheta" name="new_data_colheta" value="<?php echo $data_colheita ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
 
-        <label for="preco_unitario">preco unitario: </label>
+        <label for="preco_unitario">Preço (por unidade): </label>
         <input type="text" id="preco_unitario" name="new_preco_unitario" value="<?php echo $preco_unitario ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
 
         <input type="submit" value="Salvar" style="background-color: #4CAF50; color: #fff; border: none; border-radius: 3px; padding: 10px 15px; cursor: pointer; font-size: 16px; margin-left: auto; margin-right: auto; display: block;">

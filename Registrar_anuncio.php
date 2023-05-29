@@ -59,23 +59,23 @@ session_start();
             <section class="home" id="home">
             
             <form action="insert_anuncio.php" class="form-update-infos-produtor" enctype="multipart/form-data"  method="POST"  onsubmit="return validar();"  style="display: block; margin-top:100px; margin-left: auto; margin-right:auto; padding: 20px; width: 30%;height:500px; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
-        <label for="nome_produto">Nome Produto:</label>
+        <label for="nome_produto">Nome do Produto:</label>
         <input type="text" id="nome_produto" name="nome_produto" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;" required>
         <p style="color:red;margin-bottom:10px;display:none;" id="nome_erro"> ** Nome de produto errado </p>
         
-        <label for="qtd_produto">Quantidade Produto:</label>
+        <label for="qtd_produto">Quantidade (Unidades):</label>
         <input type="text" id="qtd_produto" name="qtd_produto"  style="display: block; margin-bottom: 10px;margin-top:10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 30%; box-sizing: border-box; align-content:flex-start;" required>
         <p style="color:red;margin-bottom:10px;display:none;" id="qtd_erro"> ** Quantidade de produto errado (0-100) </p>
         
-        <label for="descricao_produto">Descricao:</label>
+        <label for="descricao_produto">Descrição do produto:</label>
         <input type="text" id="descricao_produto" name="descricao_produto"  style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;height:50px;" required>
         <p style="color:red;margin-bottom:10px;display:none;" id="desc_erro"> ** Numero de carateres errado (10-500) </p>
         
-        <label for="preco_unitario">Preco por unidade:</label>
+        <label for="preco_unitario">Preço (por unidade):</label>
         <input type="text" id="preco_produto" placeholder="EX: 0.1 (R$)" name="preco_produto"  style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 30%; box-sizing: border-box;" required>
         <p style="color:red;margin-bottom:10px;display:none;" id="preco_erro"> ** Formato de Preco errado (R$ 0.10 com 2 digitos depois do ponto) </p>
         
-        <label for="data_colheta_produto">Data de colheta:</label>
+        <label for="data_colheta_produto">Data da colheta:</label>
         <input type="date" id="data_colheta" name="data_colheta" min="2023-04-21" max="<?= date('Y-m-d'); ?>"  style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;" required>
         
         <label for="foto_produto">Foto Produto:</label>
