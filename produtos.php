@@ -1,4 +1,20 @@
+<?php
+include('connexion.php');
+session_start();
 
+
+if($_SESSION['is_produtor']){
+    $first_name_prod =  isset($_SESSION['infos_pessoa_prod']['nome_empresa']) ? $_SESSION['infos_pessoa_prod']['nome_empresa'] : "" ;
+}
+else{
+    $id_comprador =  isset($_SESSION['infos_pessoa']['id']) ? $_SESSION['infos_pessoa']['id'] : "" ;
+    echo $id_comprador;
+}
+
+$sql = "SELECT * FROM anuncio_infos";
+$result = $conn->query($sql);
+
+?>
 <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -95,6 +111,7 @@
 
 
 
+
         </head>
         <body>
 
@@ -133,56 +150,61 @@
             <div style="display: inline-block; width:500px; margin-bottom:20px; ">
                 <form  method="post" action="search_products.php">
                    <input type="text" name="search" placeholder="Search Products" id="search_products" style="height: 20px;width:60%; border: 2px solid grey; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:large; padding:3%; border-radius: 10px;">
-                    
-                 
+
+
                 </form>
             </div>
             <div id="searchresult">
 
             </div>
+                <!--pop-up-->
+                <div id="popup1" class="popup" style="display: none">
+                    <div class="popup-card">
+                        <h2 id="popup-produto-nome"></h2>
+                        <form method="post" action="insert_pedido.php?id_comprador=<?php echo $id_comprador;?>">
+                            <label>quantidade:</label>
+                            <input id="qtd" type="number" name="qtd" placeholder="0" required>
+                            <input type="hidden" name="produto_id" id="produto_id" value="">
+                            <input type="submit" value="comprar">
+                        </form>
+                        <a href="produtos.php">  <button>voltar</button> </a>
+                    </div>
+                </div>
+
                 <?php
-                include('connexion.php');
-                session_start();
+                if ($result->num_rows > 0) {
+                    $count = 0;
+                    echo '<div id="products_list" style="display: block;">';
+                    while ($row = $result->fetch_assoc()) {
 
-                $sql = "SELECT * FROM anuncio_infos";
-                $result = $conn->query($sql);
-
-                ?>
-                
-
-                    <?php
-                    if ($result->num_rows > 0 ){
-                        $count = 0;
-                        echo '<div id="products_list" style="display: block;">';
-                        while ($row = $result->fetch_assoc()){
-                            
-                            if($count % 3 == 0){
-                                echo '<div class="row">';
-                            }
-                            echo '<div class="card">';
-                            echo '<img  src="data:image/'. $row['tipo_foto'] . ';charset=utf8;base64,'. base64_encode($row['foto_produto']) .'"  width="35%" height="150px">';
-                            echo '<h3>' . $row["nome_produto"] . '</h3>';
-                            echo $row["descricao"] . '<br>';
-                            echo '<div class="price">';
-                            echo 'R$:' . $row["preco_unitario"] ;
-                            echo '</div>';
-                            echo '<button class="comprar-botao" data-target="popup1" 
-                            data-product-nome="'. $row["nome_produto"].'"
-                            data-product-qtd="'. $row["qtd_produto"].'"
-                            data-product-id="'. $row["id_anuncio"].'"
-                            
-                            >Comprar</button>';
-                            echo '</div>';
-                            $count ++;
-                            if ($count % 1 != 0){
-                                echo '</div>';
-                            }
-                          
+                        if ($count % 3 == 0) {
+                            echo '<div class="row">';
                         }
+                        echo '<div class="card">';
+                        echo '<img src="data:image/' . $row['tipo_foto'] . ';charset=utf8;base64,' . base64_encode($row['foto_produto']) . '" width="35%" height="150px">';
+                        echo '<h3>' . $row["nome_produto"] . '</h3>';
+                        echo $row["descricao"] . '<br>';
+                        echo '<div class="price">';
+                        echo 'R$:' . $row["preco_unitario"];
+
+
+                        echo '<input type="hidden" name="produto_id" id="produto_id_' . $row["id_anuncio"] . '" value="' . $row["id_anuncio"] . '">';
+
                         echo '</div>';
+                        echo '<button class="comprar-botao" data-target="popup1" 
+                        data-product-nome="' . $row["nome_produto"] . '"                    
+                        data-product-id="' . $row["id_anuncio"] . '"
+                        >Comprar</button>';
+                        echo '</div>';
+                        $count++;
+                        if ($count % 1 != 0) {
+                            echo '</div>';
+                        }
                     }
-                    $conn->close();
-                    ?>
+                    echo '</div>';
+                }
+                ?>
+
                 <script>
                     var comprarBotoes = document.querySelectorAll('.comprar-botao');
                     comprarBotoes.forEach(function(button) {
@@ -191,37 +213,25 @@
                             var popup = document.getElementById(target);
                             if (popup) {
                                 popup.style.display = 'block';
+
                                 var produtoNome = button.dataset.productNome;
-                                var produtoQtd = button.dataset.productQtd;
                                 var anuncioIdProduto = button.dataset.productId;
-                                document.getElementById('popup-produto-nome').textContent = produtoNome;
-                                document.getElementById('popup-produto-qtd').textContent = produtoQtd;
-                                document.getElementById('popup-produto-id').textContent = anuncioIdProduto;
 
+                                var produtoId = document.getElementById('produto_id_' + anuncioIdProduto).value;
+                                document.getElementById('produto_id').value = produtoId;
 
+                                // Exibir os valores no console para verificar se estão corretos
+                                console.log('Produto Nome: ', produtoNome);
+                                console.log('Produto ID: ', produtoId);
                             }
                         });
                     });
                 </script>
 
-                <!--pop-up-->
-                <div id="popup1" class="popup" style="display: none">
-                    <div class="popup-card">
-                        <h2 id="popup-produto-nome"></h2>
-                        <form>
-                            <label>quantidade:</label>
-                            <input id="qtd" type="number" name="qtd" placeholder="0" required>
-                        </form>
-
-                        <!--
-                        <h2 id="popup-produto-qtd"></h2>
-                        <h2 id="popup-produto-id"></h2>
-                        -->
 
 
-                        <a href="produtos.php">  <button>voltar</button> </a>
-                    </div>
-                </div>
+
+
 
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -251,7 +261,6 @@
                             $("#products_list").css("display" , "block");
                         }
 
-
                        });
 
                     });
@@ -259,6 +268,7 @@
 
             </section>
 
+
         </body>
-    
+
     </html>
