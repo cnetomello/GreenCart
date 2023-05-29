@@ -163,7 +163,7 @@ $result = $conn->query($sql);
                         <h2 id="popup-produto-nome"></h2>
                         <form method="post" action="insert_pedido.php?id_comprador=<?php echo $id_comprador;?>">
                             <label>quantidade:</label>
-                            <input id="qtd" type="number" name="qtd" placeholder="0" required>
+                            <input id="qtd_produto" type="number" name="qtd" placeholder="" required>
                             <input type="hidden" name="produto_id" id="produto_id" value="">
                             <input type="submit" value="comprar">
                         </form>
@@ -189,11 +189,13 @@ $result = $conn->query($sql);
 
 
                         echo '<input type="hidden" name="produto_id" id="produto_id_' . $row["id_anuncio"] . '" value="' . $row["id_anuncio"] . '">';
+                        echo '<input type="hidden" name="qtd_produto" id="qtd_produto_' . $row["qtd_produto"] . '" value="' . $row["qtd_produto"] . '">';
 
                         echo '</div>';
                         echo '<button class="comprar-botao" data-target="popup1" 
                         data-product-nome="' . $row["nome_produto"] . '"                    
                         data-product-id="' . $row["id_anuncio"] . '"
+                        data-product-qtd="' . $row["qtd_produto"] . '" 
                         >Comprar</button>';
                         echo '</div>';
                         $count++;
@@ -216,13 +218,18 @@ $result = $conn->query($sql);
 
                                 var produtoNome = button.dataset.productNome;
                                 var anuncioIdProduto = button.dataset.productId;
+                                var qtdProdutoMax = button.dataset.productQtd;
 
                                 var produtoId = document.getElementById('produto_id_' + anuncioIdProduto).value;
                                 document.getElementById('produto_id').value = produtoId;
 
+                                var qtdProduto = document.getElementById('qtd_produto_' + qtdProdutoMax).value;
+                                document.getElementById('qtd_produto').placeholder = "max: " + qtdProduto;
+
                                 // Exibir os valores no console para verificar se estão corretos
                                 console.log('Produto Nome: ', produtoNome);
                                 console.log('Produto ID: ', produtoId);
+                                console.log('Produto qtd: ', qtdProduto);
                             }
                         });
                     });
