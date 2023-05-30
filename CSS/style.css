@@ -12,27 +12,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: greenyellow;
+    background: white;
 }
 
 .container {
     width: 80%;
     height: 80vh;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
-}
-
-.form-image {
-    width: 50%;
-    display: flex;
+    padding: 30px 35px;
     justify-content: center;
-    align-items: center;
-    background-color:white;
-    padding: 1rem;
+    flex-direction: column;
 }
 
-.form-image img {
-    width: 31rem;
+.image-gc {
+    width: 35vw;
+    position: relative;
+    top: -30px;
+    left: 25%;  
+}
+
+.title h1{
+    color: #ffff;
 }
 
 .form {
@@ -43,6 +43,10 @@ body {
     align-items: center;
     background-color: #fff;
     padding: 3rem;
+    margin-left: 23%;
+    border: 5px;
+    border-radius: 20px;
+    background: #2f2841;
 }
 
 .form-header {
@@ -56,22 +60,21 @@ body {
     align-items: center;
 }
 
-.login-button button {
+.login-button a {
     border: none;
     background-color: #6c63ff;
     padding: 0.4rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.login-button button:hover {
-    background-color: #6b63fff1;
-}
-
-.login-button button a {
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
-    color: #fff;
+}
+
+.login-button a:hover {
+    background-color: #ffffffff;
+    color: #0abb65;
+    transition: 0.5s ease;
 }
 
 .form-header h1::after {
@@ -108,7 +111,9 @@ body {
 }
 
 .input-box input:hover {
-    background-color: #eeeeee75;
+    background-color: #eeeeeec2;
+    transition: 0.25s ease;
+    cursor: pointer;
 }
 
 .input-box input:focus-visible {
@@ -119,7 +124,7 @@ body {
 .gender-title h6 {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #000000c0;
+    color: #ffffff;
 }
 
 .input-box input::placeholder {
@@ -145,7 +150,7 @@ body {
 .gender-input label {
     font-size: 0.81rem;
     font-weight: 600;
-    color: #000000c0;
+    color: #ffffff;
 }
 
 .continue-button input {
@@ -156,10 +161,16 @@ body {
     padding: 0.62rem;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #Ffffff
 }
 
-.continue-button button:hover {
-    background-color: #6b63fff1;
+.continue-button input:hover {
+    background-color: #ffffffff;
+    color: #0abb65;
+    transition: 0.5s ease;
 }
 
 .continue-button button a {

@@ -36,9 +36,7 @@ if(isset($_SESSION['duplicate_email'])){
 
 <body>
 <div class="container">
-    <div class="form-image">
-        <img src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart">
-    </div>
+        <img src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart" class="image-gc">
     <div class="form">
         <form action="Insert_info_produtor.php" method="post" onsubmit="return validate();">
             <div class="form-header">
@@ -46,7 +44,7 @@ if(isset($_SESSION['duplicate_email'])){
                     <h1>Cadastre-se</h1>
                 </div>
                 <div class="login-button">
-                    <button><a href="Login_test.php">Voltar pra Login</a></button>
+                    <a href="Login_test.php">Voltar pra Login</a>
                 </div>
             </div>
 

@@ -26,10 +26,9 @@
 
 
                 </div>
-                <input type="submit" class="btn-login" value="Login" style="font-size:20px">
+                <input type="submit" class="btn-login" value="Login">
                 <a style="color:#ffffff">Crie sua conta agora</a>
                 <a href="Cadastro_test.php" class="criar_conta">Comprador</a>
-                <a style="color:#ffffff">ou</a>
                 <a href="Cadastro_produtor.php" class="criar_conta">Produtor<a><br><br>
             </form>
         </div>

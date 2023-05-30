@@ -24,23 +24,21 @@ if(isset($_SESSION['duplicate'])){
 
 <body>
 <div class="container">
-    <div class="form-image">
-        <img src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart">
-    </div>
+    <img class="image-gc" src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart" >
     <div class="form">
         <form action="Insert_info.php" method="post" onsubmit="return validate();">
             <div class="form-header">
                 <div class="title">
-                    <h1>Cadastre-se</h1>
+                    <h1 style="color: white">Cadastre-se</h1>
                 </div>
                 <div class="login-button">
-                    <button><a href="Login_test.php">Voltar pra Login</a></button>
+                    <a href="Login_test.php">Voltar pra Login</a>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-box">
-                    <label for="firstname">Primeiro Nome</label>
+                    <label for="firstname" class="text-color">Primeiro Nome</label>
                     <input id="firstname" type="text" name="first_name" placeholder="Digite seu primeiro nome" required>
                     <p id="error-name" style="font-size: 10px; display: none">
                         *O nome nao pode conter numeros e simbolos<br>
@@ -115,7 +113,7 @@ if(isset($_SESSION['duplicate'])){
                     </div>
                 </div>
                 <p id="error-genero" style="font-size: 10px; display: none">
-                    *por favor escolha pelo menos uma opcao<br>
+                    *por favor escolha pelo menos uma opção<br>
                 </p>
 
             </div>
