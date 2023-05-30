@@ -25,22 +25,22 @@ if(isset($_SESSION['duplicate'])){
 <body>
 <div class="container">
     <div class="form-image">
-        <img src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart">
+        <img class="image-gc" src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart" >
     </div>
     <div class="form">
         <form action="Insert_info.php" method="post" onsubmit="return validate();">
             <div class="form-header">
                 <div class="title">
-                    <h1>Cadastre-se</h1>
+                    <h1 style="color: white">Cadastre-se</h1>
                 </div>
                 <div class="login-button">
-                    <button><a href="Login_test.php">Voltar pra Login</a></button>
+                    <a href="Login_test.php">Voltar pra Login</a>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-box">
-                    <label for="firstname">Primeiro Nome</label>
+                    <label style="color:white" for="firstname">Primeiro Nome</label>
                     <input id="firstname" type="text" name="first_name" placeholder="Digite seu primeiro nome" required>
                     <p id="error-name" style="font-size: 10px; display: none">
                         *O nome nao pode conter numeros e simbolos<br>
@@ -49,7 +49,7 @@ if(isset($_SESSION['duplicate'])){
                 </div>
 
                 <div class="input-box">
-                    <label for="lastname">Sobrenome</label>
+                    <label style="color:white" for="lastname">Sobrenome</label>
                     <input id="lastname" type="text" name="last_name" placeholder="Digite seu sobrenome" required>
                     <p id="error-last-name" style="font-size: 10px; display: none">
                         *O sobrenome nao pode conter numeros e simbolos<br>
@@ -57,7 +57,7 @@ if(isset($_SESSION['duplicate'])){
                     </p>
                 </div>
                 <div class="input-box">
-                    <label for="email">E-mail</label>
+                    <label style="color:white" for="email">E-mail</label>
                     <input id="email" type="text" name="email" placeholder="Digite seu e-mail" required>
                     <p id="error-email" style="font-size: 10px; display: none">
                         *Digite um email valido<br>
@@ -65,7 +65,7 @@ if(isset($_SESSION['duplicate'])){
                 </div>
 
                 <div class="input-box">
-                    <label for="number">Celular</label>
+                    <label style="color:white" for="number">Celular</label>
                     <input id="number" type="tel" name="phone" placeholder="(xx) xxxx-xxxx" required>
                     <p id="error-phone" style="font-size: 10px; display: none">
                         *digite um telefone valido<br>
@@ -73,7 +73,7 @@ if(isset($_SESSION['duplicate'])){
                 </div>
 
                 <div class="input-box">
-                    <label for="password">Senha</label>
+                    <label style="color:white" for="password">Senha</label>
                     <input id="password" type="password" name="pass" placeholder="Digite sua senha" required>
                     <p id="error-password" style="font-size: 10px; display: none">
                         *a senha deve conter pelo menos um caracter maiusculo<br>
@@ -84,7 +84,7 @@ if(isset($_SESSION['duplicate'])){
 
 
                 <div class="input-box">
-                    <label for="confirmPassword">Confirme sua Senha</label>
+                    <label style="color:white" for="confirmPassword">Confirme sua Senha</label>
                     <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
                     <p id="error-confirmPassword" style="font-size: 10px; display: none">
                         *as senhas devem ser igual<br>
@@ -95,23 +95,23 @@ if(isset($_SESSION['duplicate'])){
 
             <div class="gender-inputs">
                 <div class="gender-title">
-                    <h6>Gênero</h6>
+                    <h6 style="color:white">Gênero</h6>
                 </div>
 
                 <div class="gender-group">
                     <div class="gender-input">
                         <input id="female" type="radio" name="gender" value="Feminino">
-                        <label for="female">Feminino</label>
+                        <label style="color:white" for="female">Feminino</label>
                     </div>
 
                     <div class="gender-input">
                         <input id="male" type="radio" name="gender" value="Masculino">
-                        <label for="male">Masculino</label>
+                        <label style="color:white" for="male">Masculino</label>
                     </div>
 
                     <div class="gender-input">
                         <input id="others" type="radio" name="gender" value="Outros">
-                        <label for="others">Outros</label>
+                        <label style="color:white" for="others">Outros</label>
                     </div>
                 </div>
                 <p id="error-genero" style="font-size: 10px; display: none">

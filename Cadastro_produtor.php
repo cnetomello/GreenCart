@@ -37,7 +37,7 @@ if(isset($_SESSION['duplicate_email'])){
 <body>
 <div class="container">
     <div class="form-image">
-        <img src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart">
+        <img src="images\greencart_carrinho-removebg-preview.png" alt="GreenCart" class="image-gc">
     </div>
     <div class="form">
         <form action="Insert_info_produtor.php" method="post" onsubmit="return validate();">
@@ -46,13 +46,13 @@ if(isset($_SESSION['duplicate_email'])){
                     <h1>Cadastre-se</h1>
                 </div>
                 <div class="login-button">
-                    <button><a href="Login_test.php">Voltar pra Login</a></button>
+                    <a href="Login_test.php">Voltar pra Login</a>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-box">
-                    <label for="nome_empresa">Nome da empresa:</label>
+                    <label style="color:white" for="nome_empresa">Nome da empresa:</label>
                     <input id="nome_empresa" type="text" name="nome_empresa" placeholder="Digite o nome da empresa" required>
                     <p id="error-name-empresa" style="font-size: 10px; display: none">
                         *O nome da empresa não deve conter números nem caracteres especiais.<br>
@@ -62,7 +62,7 @@ if(isset($_SESSION['duplicate_email'])){
 
             
                 <div class="input-box">
-                    <label for="email">E-mail</label>
+                    <label style="color:white" for="email">E-mail</label>
                     <input id="email" type="text" name="email" placeholder="Digite seu e-mail" required>
                     <p id="error-email" style="font-size: 10px; display: none">
                         *Digite um email valido<br>
@@ -71,7 +71,7 @@ if(isset($_SESSION['duplicate_email'])){
                 </div>
 
                 <div class="input-box">
-                    <label for="number">Celular</label>
+                    <label style="color:white" for="number">Celular</label>
                     <input id="number" type="text" name="phone" placeholder="(xx) xxxx-xxxx" required>
                     <p id="error-phone" style="font-size: 10px; display: none">
                         *Digite um telefone valido<br>
@@ -80,7 +80,7 @@ if(isset($_SESSION['duplicate_email'])){
                 </div>
 
                 <div class="input-box">
-                    <label for="CNPJ">CNPJ</label>
+                    <label style="color:white" for="CNPJ">CNPJ</label>
                     <input id="CNPJ" type="text" name="cnpj" placeholder="00.000.000/0000-00" required>
                     <p id="error-cnpj" style="font-size: 10px; display: none">
                         *Digite um CNPJ valido<br>
@@ -89,7 +89,7 @@ if(isset($_SESSION['duplicate_email'])){
                 </div>
 
                 <div class="input-box">
-                    <label for="password">Senha</label>
+                    <label style="color:white" for="password">Senha</label>
                     <input id="password" type="password" name="pass" placeholder="Digite sua senha" required>
                     <p id="error-password" style="font-size: 10px; display: none">
                         *a senha deve conter pelo menos um caracter maiusculo<br>
@@ -100,7 +100,7 @@ if(isset($_SESSION['duplicate_email'])){
 
 
                 <div class="input-box">
-                    <label for="confirmPassword">Confirme sua Senha</label>
+                    <label style="color:white" for="confirmPassword">Confirme sua Senha</label>
                     <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
                     <p id="error-confirmPassword" style="font-size: 10px; display: none">
                         *as senhas devem ser igual<br>

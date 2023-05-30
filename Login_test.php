@@ -13,7 +13,7 @@
     <div class="right-login">
     <img src="images/greencart_carrinho-removebg-preview.png" alt="GreenCart" class="left_image">
         <div class="card-login">
-            <h1>LOGIN</h1>
+            <h1>Login</h1>
 
             <form action="login_php.php" method="post" class="form_login">
                 <div class="textfield">
@@ -26,10 +26,10 @@
 
 
                 </div>
-                <input type="submit" class="btn-login" value="Login" style="font-size:20px">
-                <a style="color:#ffffff">Crie sua conta agora como:</a>
+                <input type="submit" class="btn-login" value="Login">
+                <a style="color:#ffffff">Crie sua conta de </a>
                 <a href="Cadastro_test.php" class="criar_conta">Comprador</a>
-                <a style="color:#ffffff">ou</a>
+                <a style="color:#ffffff"> ou </a>
                 <a href="Cadastro_produtor.php" class="criar_conta">Produtor<a><br><br>
             </form>
         </div>
