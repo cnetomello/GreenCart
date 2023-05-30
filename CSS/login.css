@@ -67,20 +67,28 @@ body{
 
 }
 
-.btn-login{
-    width:100%;
-    padding: 16px 0px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border:none;
-    border-radius: 8px;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: #0abb65;
+.btn-login {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    border: none;
+    background-color: #6c63ff;
+    padding: 0.62rem;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #Ffffff;
+    font-size: 20px;
 }
+
+.btn-login:hover{
+    background-color: #ffffffff;
+    color: #0abb65;
+    transition: 0.5s ease;
+}
+
 .left_image{
     width: 35vw;
     position: relative;
@@ -88,6 +96,7 @@ body{
     left: 0px;
 
 }
+
 .criar_conta{
     text-decoration: none;
     color: #ffffff;
@@ -95,5 +104,6 @@ body{
 
 .criar_conta:hover {
     color: #0abb65;
+    transition: 1.5ms ease;
 }
 
