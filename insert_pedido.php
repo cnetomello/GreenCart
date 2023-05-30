@@ -11,7 +11,8 @@ $atualizando_estoque = "UPDATE anuncio_infos SET qtd_produto = qtd_produto - '$q
 
 if ($conn->query($sql) === TRUE) {
     if ($conn->query($atualizando_estoque) === TRUE) {
-        echo "Pedido inserido e estoque atualizado com sucesso.";
+        session_start();
+        $_SESSION['comprado']= True;
         header('Location: produtos.php');
     } else {
         echo "Erro ao atualizar o estoque: " . $conn->error;

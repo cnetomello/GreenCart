@@ -11,7 +11,8 @@ else{
     echo $id_comprador;
 }
 
-$sql = "SELECT * FROM anuncio_infos";
+
+$sql = "SELECT * FROM anuncio_infos WHERE  qtd_produto >0";
 $result = $conn->query($sql);
 
 ?>
@@ -28,6 +29,10 @@ $result = $conn->query($sql);
         
             <!-- custom css file link  -->
             <link rel="stylesheet" href="CSS/produtos.css">
+            
+                    
+                    
+                
             <style>
                 .card {
                     width: 30%;
@@ -100,7 +105,8 @@ $result = $conn->query($sql);
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    width: 400px;
+                    width: 600px;
+                    height: 300px;
                     max-width: 90%;
                     background-color: #fff;
                     padding: 20px;
@@ -114,6 +120,13 @@ $result = $conn->query($sql);
 
         </head>
         <body>
+            <?php 
+            if($_SESSION['comprado']){
+                ?> <script>alert("Compra efetuada com sucesso.")</script> <?php
+            unset($_SESSION['comprado']); 
+            }
+             
+            ?>
 
             <header>
 
@@ -160,14 +173,18 @@ $result = $conn->query($sql);
                 <!--pop-up-->
                 <div id="popup1" class="popup" style="display: none">
                     <div class="popup-card">
-                        <h2 id="popup-produto-nome"></h2>
-                        <form method="post" action="insert_pedido.php?id_comprador=<?php echo $id_comprador;?>">
-                            <label>quantidade:</label>
-                            <input id="qtd_produto" type="number" name="qtd" placeholder="" required>
-                            <input type="hidden" name="produto_id" id="produto_id" value="">
-                            <input type="submit" value="comprar">
+                        <h2 id="popup-produto-nome" style="font-size: 20px;"></h2>
+                        <form method="post" action="insert_pedido.php?id_comprador=<?php echo $id_comprador;?> " onsubmit="" style="margin:50px 20px 0px 20px; display:inline; ">
+                            <label style="font-size:20px;">Quantidade:</label>
+                            <input id="qtd_produto" type="number" name="qtd" placeholder="" min="1"  style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 20px; width:20%; margin:30px; border: 1px solid black;align-items:center;" required >
+                            <div style="margin:60px 0px 0px 100px; display: flex;justify-content:space-between; width:50%;">
+                            <input type="hidden" name="produto_id" id="produto_id" value="" >
+                            <input type="submit" value="Comprar" style="font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif;background-color:#45a049;padding:10px;border-radius: 10px;color:white; cursor:pointer;">
+                            <input type="button" id="botao_voltar" onclick="voltar();" style="font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif;background-color:red;padding:10px;border-radius: 10px;color:white;cursor:pointer;" value="Voltar"></input>
                         </form>
-                        <a href="produtos.php">  <button>voltar</button> </a>
+                        
+                        
+            </div>
                     </div>
                 </div>
 
@@ -186,17 +203,19 @@ $result = $conn->query($sql);
                         echo $row["descricao"] . '<br>';
                         echo '<div class="price">';
                         echo 'R$:' . $row["preco_unitario"];
-
-
+                        
+                        if(! $_SESSION['is_produtor']){
                         echo '<input type="hidden" name="produto_id" id="produto_id_' . $row["id_anuncio"] . '" value="' . $row["id_anuncio"] . '">';
                         echo '<input type="hidden" name="qtd_produto" id="qtd_produto_' . $row["qtd_produto"] . '" value="' . $row["qtd_produto"] . '">';
+
+
 
                         echo '</div>';
                         echo '<button class="comprar-botao" data-target="popup1" 
                         data-product-nome="' . $row["nome_produto"] . '"                    
                         data-product-id="' . $row["id_anuncio"] . '"
                         data-product-qtd="' . $row["qtd_produto"] . '" 
-                        >Comprar</button>';
+                        >Comprar</button>';}
                         echo '</div>';
                         $count++;
                         if ($count % 1 != 0) {
@@ -207,33 +226,7 @@ $result = $conn->query($sql);
                 }
                 ?>
 
-                <script>
-                    var comprarBotoes = document.querySelectorAll('.comprar-botao');
-                    comprarBotoes.forEach(function(button) {
-                        button.addEventListener('click', function() {
-                            var target = this.dataset.target;
-                            var popup = document.getElementById(target);
-                            if (popup) {
-                                popup.style.display = 'block';
-
-                                var produtoNome = button.dataset.productNome;
-                                var anuncioIdProduto = button.dataset.productId;
-                                var qtdProdutoMax = button.dataset.productQtd;
-
-                                var produtoId = document.getElementById('produto_id_' + anuncioIdProduto).value;
-                                document.getElementById('produto_id').value = produtoId;
-
-                                var qtdProduto = document.getElementById('qtd_produto_' + qtdProdutoMax).value;
-                                document.getElementById('qtd_produto').placeholder = "max: " + qtdProduto;
-
-                                // Exibir os valores no console para verificar se estão corretos
-                                console.log('Produto Nome: ', produtoNome);
-                                console.log('Produto ID: ', produtoId);
-                                console.log('Produto qtd: ', qtdProduto);
-                            }
-                        });
-                    });
-                </script>
+                
 
 
 
@@ -243,6 +236,8 @@ $result = $conn->query($sql);
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                 <script type="text/javascript">
+
+                    
                     $(document).ready(function(){
                        $("#search_products").keyup(function(){
                         
@@ -271,7 +266,9 @@ $result = $conn->query($sql);
                        });
 
                     });
+                    
                 </script>
+                <script src="js/popup_produtos.js" type="text/javascript" ></script>
 
             </section>
 
