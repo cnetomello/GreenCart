@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost:3308";
+$servername = "localhost";
 $username = "root@";
 $password = "";
-$dbname = "greencart"; // para Cyril colocar greencart
+$dbname = "login_econ"; // para Cyril colocar greencart
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
