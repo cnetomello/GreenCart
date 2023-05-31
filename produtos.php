@@ -204,13 +204,14 @@ $result = $conn->query($sql);
                         echo '<div class="price">';
                         echo 'R$:' . $row["preco_unitario"];
                         
-                        if(! $_SESSION['is_produtor']){
+                        
                         echo '<input type="hidden" name="produto_id" id="produto_id_' . $row["id_anuncio"] . '" value="' . $row["id_anuncio"] . '">';
                         echo '<input type="hidden" name="qtd_produto" id="qtd_produto_' . $row["qtd_produto"] . '" value="' . $row["qtd_produto"] . '">';
 
 
 
                         echo '</div>';
+                        if(! $_SESSION['is_produtor']){
                         echo '<button class="comprar-botao" data-target="popup1" 
                         data-product-nome="' . $row["nome_produto"] . '"                    
                         data-product-id="' . $row["id_anuncio"] . '"

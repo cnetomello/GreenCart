@@ -28,13 +28,14 @@ if(isset($_POST['input'])){
             echo 'R$:' . $row["preco_unitario"];
             
 
-            if(! $_SESSION['is_produtor']){
+            
                 echo '<input type="hidden" name="produto_id" id="produto_id_' . $row["id_anuncio"] . '" value="' . $row["id_anuncio"] . '">';
                 echo '<input type="hidden" name="qtd_produto" id="qtd_produto_' . $row["qtd_produto"] . '" value="' . $row["qtd_produto"] . '">';
 
 
-
+                
                 echo '</div>';
+                if(! $_SESSION['is_produtor']){
                 echo '<button class="comprar-botao" data-target="popup1" 
                 data-product-nome="' . $row["nome_produto"] . '"                    
                 data-product-id="' . $row["id_anuncio"] . '"
@@ -48,13 +49,13 @@ if(isset($_POST['input'])){
               
             }
             
-        }
+        
         $conn->close();
-
-    }
+        }
+    
     else{
-        echo "<h1> No data found </h1>";
+        echo "<h1 style='font-family:Verdana, Geneva, Tahoma, sans-serif;color:#45a049;font-size: 30px; margin-top: 30px;'> Nao Existe Produtos  ' ". $input ." '. </h1>";
     }
-
+}
 
 ?>
