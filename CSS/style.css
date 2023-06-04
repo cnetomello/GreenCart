@@ -175,6 +175,12 @@ body {
     color: #fff;
 }
 
+.error-msg{
+    font-size: 10px; 
+    display: none;
+    color: #fff;
+}
+
 @media screen and (max-width: 1330px) {
     .form-image {
         display: none;
