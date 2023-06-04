@@ -15,12 +15,16 @@ if(isset($_POST['input'])){
             
             
             while ($row = $result->fetch_assoc()){
+                $sql_nome = "SELECT nome_empresa FROM infos_prod WHERE id_prod = $row[id_prod_an]";
+                        $result_nome = $conn->query($sql_nome);
+                        $row_nome = $result_nome->fetch_assoc();
                 
                 if($count % 3 == 0){
                     echo '<div class="row">';
                 }
                
             echo '<div class="card">';
+            echo '<h1 style="margin-bottom: 3px;color: green; font-size:20px; "> Vendido por : '. $row_nome['nome_empresa'] . '</h1>';
             echo '<img src="data:image/' . $row['tipo_foto'] . ';charset=utf8;base64,' . base64_encode($row['foto_produto']) . '" width="35%" height="150px">';
             echo '<h3>' . $row["nome_produto"] . '</h3>';
             echo $row["descricao"] . '<br>';
@@ -36,7 +40,7 @@ if(isset($_POST['input'])){
                 
                 echo '</div>';
                 if(! $_SESSION['is_produtor']){
-                echo '<button class="comprar-botao" data-target="popup1" 
+                echo '<button class="comprar-botao" onclick="popup()" data-target="popup1" 
                 data-product-nome="' . $row["nome_produto"] . '"                    
                 data-product-id="' . $row["id_anuncio"] . '"
                 data-product-qtd="' . $row["qtd_produto"] . '" 
@@ -46,6 +50,7 @@ if(isset($_POST['input'])){
                 if ($count % 1 != 0){
                     echo '</div>';
                 }
+            echo '<script src="js/popup_produtos.js" type="text/javascript" ></script>';
               
             }
             

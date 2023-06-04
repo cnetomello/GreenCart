@@ -111,7 +111,9 @@ header .fa-bars{
 }
 
 .home .content{
+    position: relative;
     max-width: 50rem;
+    align-items: center;
     font-size: 15px;
 }
 
