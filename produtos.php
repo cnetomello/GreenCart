@@ -13,6 +13,7 @@ else{
 
 
 $sql = "SELECT * FROM anuncio_infos WHERE  qtd_produto >0";
+$sql_nome = "SELECT * FROM infos_prod";
 $result = $conn->query($sql);
 
 ?>
@@ -45,6 +46,7 @@ $result = $conn->query($sql);
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
+                    font-size: 15px;;
                 }
 
                 .card img {
@@ -193,11 +195,16 @@ $result = $conn->query($sql);
                     $count = 0;
                     echo '<div id="products_list" style="display: block;">';
                     while ($row = $result->fetch_assoc()) {
+                        $sql_nome = "SELECT nome_empresa FROM infos_prod WHERE id_prod = $row[id_prod_an]";
+                        $result_nome = $conn->query($sql_nome);
+                        $row_nome = $result_nome->fetch_assoc();
 
+                        
                         if ($count % 3 == 0) {
                             echo '<div class="row">';
                         }
                         echo '<div class="card">';
+                        echo '<h1 style="margin-bottom: 10px;color: green; font-size:20px; "> Produtor : '. $row_nome['nome_empresa'] . '</h1>';
                         echo '<img src="data:image/' . $row['tipo_foto'] . ';charset=utf8;base64,' . base64_encode($row['foto_produto']) . '" width="35%" height="150px">';
                         echo '<h3>' . $row["nome_produto"] . '</h3>';
                         echo $row["descricao"] . '<br>';
@@ -212,7 +219,7 @@ $result = $conn->query($sql);
 
                         echo '</div>';
                         if(! $_SESSION['is_produtor']){
-                        echo '<button class="comprar-botao" data-target="popup1" 
+                        echo '<button class="comprar-botao" onclick="popup()" data-target="popup1" 
                         data-product-nome="' . $row["nome_produto"] . '"                    
                         data-product-id="' . $row["id_anuncio"] . '"
                         data-product-qtd="' . $row["qtd_produto"] . '" 
@@ -255,6 +262,7 @@ $result = $conn->query($sql);
                             
                             success:function(data){
                                 $("#searchresult").html(data);
+                                
                             }
                           });
                           

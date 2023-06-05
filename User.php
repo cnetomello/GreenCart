@@ -108,6 +108,10 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
     } ?></h1>
 <div style="display:flex;margin-top:20px;">
 <button name="Edit Profile" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toInfo()">Editar Perfil</button>
+<?php if(!$_SESSION['is_produtor']){?>
+    <button name="Registrar Produto" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toCompras()">Visualizar Compras</button>
+<?php    
+}?>
 <?php if($_SESSION['is_produtor']){?>
     <button name="Registrar Produto" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toAnuncio()">Registrar Anuncio</button>
     <button name="Editar Produtos" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toEditAnuncio()">Editar Anuncio</button>
@@ -134,6 +138,9 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
     }
     function toEditAnuncio(){
         window.location.href='Editar_anuncio.php'
+    }
+    function toCompras(){
+        window.location.href='Compras.php'
     }
 </script>
 <div style="display: flex;justify-content:center;align-items:center;margin-top:20px;">

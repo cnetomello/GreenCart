@@ -1,4 +1,5 @@
-                   var comprarBotoes = document.querySelectorAll('.comprar-botao');
+
+                var comprarBotoes = document.querySelectorAll('.comprar-botao');
                     comprarBotoes.forEach(function(button) {
                         button.addEventListener('click', function() {
                             var target = this.dataset.target;
