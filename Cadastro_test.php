@@ -42,7 +42,7 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label style="color:white" for="firstname">Primeiro Nome</label>
                     <input id="firstname" type="text" name="first_name" placeholder="Digite seu primeiro nome" required>
-                    <p id="error-name" style="font-size: 10px; display: none">
+                    <p class="error-msg" id="error-name">
                         *O nome nao pode conter numeros e simbolos<br>
                         *O nome deve possouir mais que 3 caracteres
                     </p>
@@ -51,7 +51,7 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label style="color:white" for="lastname">Sobrenome</label>
                     <input id="lastname" type="text" name="last_name" placeholder="Digite seu sobrenome" required>
-                    <p id="error-last-name" style="font-size: 10px; display: none">
+                    <p class="error-msg" id="error-last-name">
                         *O sobrenome nao pode conter numeros e simbolos<br>
                         *O sobrenome deve possuir mais que 3 caracteres
                     </p>
@@ -59,7 +59,7 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label style="color:white" for="email">E-mail</label>
                     <input id="email" type="text" name="email" placeholder="Digite seu e-mail" required>
-                    <p id="error-email" style="font-size: 10px; display: none">
+                    <p class="error-msg" id="error-email">
                         *Digite um email valido<br>
                     </p>
                 </div>
@@ -67,7 +67,7 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label style="color:white" for="number">Celular</label>
                     <input id="number" type="tel" name="phone" placeholder="(xx) xxxx-xxxx" required>
-                    <p id="error-phone" style="font-size: 10px; display: none">
+                    <p class="error-msg" id="error-phone">
                         *digite um telefone valido<br>
                     </p>
                 </div>
@@ -75,7 +75,7 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label style="color:white" for="password">Senha</label>
                     <input id="password" type="password" name="pass" placeholder="Digite sua senha" required>
-                    <p id="error-password" style="font-size: 10px; display: none">
+                    <p class="error-msg" id="error-password">
                         *a senha deve conter pelo menos um caracter maiusculo<br>
                         *a senha deve conter pelo menos um caractere especial<br>
                         *a senha deve ter pelo menos 6 digitos
@@ -86,7 +86,7 @@ if(isset($_SESSION['duplicate'])){
                 <div class="input-box">
                     <label style="color:white" for="confirmPassword">Confirme sua Senha</label>
                     <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
-                    <p id="error-confirmPassword" style="font-size: 10px; display: none">
+                    <p class="error-msg" id="error-confirmPassword">
                         *as senhas devem ser igual<br>
                     </p>
                 </div>
