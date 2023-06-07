@@ -31,7 +31,7 @@ if(isset($_SESSION['duplicate'])){
         <form action="Insert_info.php" method="post" onsubmit="return validate();">
             <div class="form-header">
                 <div class="title">
-                    <h1 style="color: white">Cadastre-se</h1>
+                    <h1 style="color: white">Cadastro comprador</h1>
                 </div>
                 <div class="login-button">
                     <a href="Login_test.php">Voltar pra Login</a>
