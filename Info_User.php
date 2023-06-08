@@ -73,16 +73,16 @@ if($_SESSION['is_produtor']){ ?>
 
 
 
-    <table class="tabela-produtor" style="display: block">
-                <tr>
+    <table class="tabela-produtor">
+                <tr class="label-name">
                     <th>Nome Empresa:</th>
                     <td><?php echo $nome_empresa?></td>
                 </tr>
-                <tr>
+                <tr class="label-name">
                     <th>Email:</th>
                     <td><?php echo $email_prod?></td>
                 </tr>
-                <tr>
+                <tr class="label-name">
                     <th>Phone:</th>
                     <td><?php echo $fone_prod?></td>
                 </tr>
@@ -111,20 +111,20 @@ if($_SESSION['is_produtor']){ ?>
             </form>
 
 
-            <table class="tabela-comprador" style="display: block">
-                <tr>
+            <table class="tabela-comprador">
+                <tr class="label-name">
                     <th>First Name:</th>
                     <td><?php echo $first_name?></td>
                 </tr>
-                <tr>
+                <tr class="label-name">
                     <th>Last Name:</th>
-                    <td><?php echo $last_name?></td>
+                    <><?php echo $last_name?></td>
                 </tr>
-                <tr>
+                <tr class="label-name">
                     <th>Phone:</th>
                     <td><?php echo $phone?></td>
                 </tr>
-                <tr>
+                <tr class="label-name">
                     <th>Email:</th>
                     <td><?php echo $email?></td>
                 </tr>
@@ -140,7 +140,7 @@ if($_SESSION['is_produtor']){ ?>
 
 <script>
     function delete_acc(){
-        if(confirm('Are you sure you want to delete this account?')){
+        if(confirm('Tem certeza que deseja deletar a conta?')){
         window.location.href='Delete_account.php';
         }
     }
