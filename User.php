@@ -27,14 +27,14 @@ if(isset($_SESSION['anuncio_criado']) && !$_SESSION['anuncio_criado']){
 
 if(isset($_SESSION['update']) && $_SESSION['update']){
     ?><script>
-     alert ('Infos updated successfully.');
+     alert ('Informações atualizadas com sucesso');
      </script>
      <?php
      unset($_SESSION['update']);
 }
 if(isset($_SESSION['update']) && !$_SESSION['update']){
     ?><script>
-     alert ('Infos could not be updated.');
+     alert ('As informações não foram possíveis ser atualizadas.');
      </script>
      <?php
      unset($_SESSION['update']);
@@ -123,7 +123,7 @@ $last_name =  isset($_SESSION['infos_pessoa']['last_name']) ? $_SESSION['infos_p
 </section>
 <script>
     function ret(){
-        let c= confirm('Are you sure you want to log out ?');
+        let c= confirm('Tem certeza que deseja sair?');
         if(c){
             window.location.href='unset_user.php';
         }
