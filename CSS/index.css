@@ -107,15 +107,22 @@ header .fa-bars{
 .home{
     display: flex;
     align-items: center;
-    min-height: 60vh;
+    min-height: 50em;
     background:url(../images/plano\ de\ fundo.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .home .content{
-    max-width: 50rem;
-    position: relative; bottom: -6rem;
+    max-width: 100em;
+    position: relative;
+     bottom: -6rem;
+
+}
+.container-balance{
+    min-width:50em;
+    display: flex;
+    margin-top: 150px;
 }
 
 .home .content h3{
@@ -304,3 +311,26 @@ header .fa-bars{
 .footer .box-container .box  img{
     margin-top: 1rem;
 }
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
