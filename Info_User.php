@@ -58,16 +58,25 @@ else{
 <?php
 if($_SESSION['is_produtor']){ ?>
 
-    <form class="form-update-infos-produtor" method="POST" action="update_infos.php" style="display: none; margin: 20px; padding: 20px; width: 30%; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
+    <form class="form-update-infos-produtor" method="POST" action="update_infos.php" onsubmit="return validar_produtor()" style="display: none; margin: 20px; padding: 20px; width: 30%; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
         <label for="nome">Nome:</label>
         <input type="text" id="nome_empresa" name="new_nome_empresa" value="<?php echo $nome_empresa ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
-
+        <p style="display: none; color:red; margin-bottom:10px;" id="error-name-empresa">
+                        *O nome da empresa não deve conter números nem caracteres especiais.<br>
+                        *O nome da empresa deve possuir mais que 3 caracteres.
+                    </p>
         <label for="email">E-mail:</label>
-        <input type="text" id="email" name="new_email" value="<?php echo $email_prod ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
+        <input type="text" id="email_produtor" name="new_email" value="<?php echo $email_prod ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
+        <p style="display: none; color:red; margin-bottom:10px;" id="error-email_empresa">
+                        *Digite um email valido<br>
 
+                    </p>
         <label for="telefone">Telefone:</label>
-        <input type="text" id="phone" name="new_phone" value="<?php echo $fone_prod ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
+        <input type="text" id="phone_produtor" name="new_phone" value="<?php echo $fone_prod ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
+        <p style="display: none; color:red; margin-bottom:10px;" id="error-phone">
+                        *Digite um telefone valido<br>
 
+                    </p>
         <input type="submit" value="Salvar" style="background-color: #4CAF50; color: #fff; border: none; border-radius: 3px; padding: 10px 15px; cursor: pointer; font-size: 16px; margin-left: auto; margin-right: auto; display: block;">
     </form>
 
@@ -94,19 +103,29 @@ if($_SESSION['is_produtor']){ ?>
                 </tr>
             </table>
         <?php } else{ ?>
-            <form class="form-update-infos-comprador" method="POST" action="update_infos.php" style="display: none; margin: 20px; width: 30% ; padding: 20px; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
+            <form class="form-update-infos-comprador" method="POST" action="update_infos.php" onsubmit="return validate_comprador()" style="display: none; margin: 20px; width: 30% ; padding: 20px; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f8f8;">
                 <label for="nome">Primeiro Nome:</label>
                 <input type="text" id="first_name" name="new_first_name" value="<?php echo $first_name ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
-
+                <p style="display: none; color:red; margin-bottom:10px;" id="error-name">
+                        *O nome nao pode conter numeros e simbolos<br>
+                        *O nome deve possouir mais que 3 caracteres
+                    </p>
                 <label for="nome">Ultimo Nome:</label>
                 <input type="text" id="last_name" name="new_last_name" value="<?php echo $last_name ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
-
+                <p style="display: none; color:red;margin-bottom:10px;" id="error-last-name">
+                        *O sobrenome nao pode conter numeros e simbolos<br>
+                        *O sobrenome deve possuir mais que 3 caracteres
+                    </p>
                 <label for="email">E-mail:</label>
                 <input type="text" id="email" name="new_email" value="<?php echo $email ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
-
+                <p style="display: none; color:red;margin-bottom:10px;" id="error-email">
+                        *Digite um email valido<br>
+                    </p>
                 <label for="telefone">Telefone:</label>
                 <input type="text" id="phone" name="new_phone" value="<?php echo $phone ?>" style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
-
+                <p style="display: none; color:red;margin-bottom:10px;"  id="error-phone">
+                        *digite um telefone valido<br>
+                    </p>
                 <input type="submit" value="Salvar" style="background-color: #4CAF50; color: #fff; border: none; border-radius: 3px; padding: 10px 15px; cursor: pointer; font-size: 16px; margin-left: auto; margin-right: auto; display: block;">
             </form>
 
@@ -118,7 +137,7 @@ if($_SESSION['is_produtor']){ ?>
                 </tr>
                 <tr class="label-name">
                     <th>Last Name:</th>
-                    <><?php echo $last_name?></td>
+                    <td><?php echo $last_name?></td> <!-- fazem atencao um de vcs  apagaram o td  nao tava mostrando o ultimo nome -->
                 </tr>
                 <tr class="label-name">
                     <th>Phone:</th>
@@ -139,12 +158,114 @@ if($_SESSION['is_produtor']){ ?>
 <?php } ?>
 
 <script>
+     function allLetter(inputtxt)
+    {
+        var letters = /^[A-Za-z,\s]+$/;
+        if(inputtxt.value.match(letters))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function isPhone(inputtext){
+        const ph=/^\+?[1-9][0-9]{7,14}$/;
+        return ph.test(inputtext);
+    }
+
+    function isPassword(text){
+        const  passw=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // no minimo um numero um maiusculo e um minusculo
+        if(passw.test(text)){
+            return true;
+        }
+        return false;
+    }
+    const first=document.getElementById('first_name');
+    const last=document.getElementById('last_name');
+    const email=document.getElementById('email');
+    const phone=document.getElementById('phone');
+    
+
+    function validate_comprador(){
+        //----------------------------------------validando first_name--------------------------------------------------
+        if (first.value.length<3 || !allLetter(first)){
+           
+            first.style.borderColor = 'red'
+            var errorName = document.querySelector("#error-name")
+            errorName.style.display = 'block'
+            first.focus();
+            return false;
+        }
+        else {
+           
+            first.style.borderColor = '';
+            var errorName = document.querySelector("#error-name");
+            errorName.style.display = 'none';
+        }
+
+        //----------------------------------------validando last_name--------------------------------------------------
+        if (last.value.length<3 || !allLetter(last)){
+            
+            last.style.borderColor = 'red'
+            var errorLastName = document.querySelector("#error-last-name")
+            errorLastName.style.display = 'block'
+            last.focus();
+            return false;
+        }else{
+            
+            last.style.borderColor = '';
+            var errorLastName = document.querySelector("#error-last-name");
+            errorLastName.style.display = 'none';
+        }
+
+
+        //----------------------------------------validando email----------------------------------------------------
+        if(!email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+            
+            email.style.borderColor = 'red'
+            var errorEmail = document.querySelector("#error-email")
+            errorEmail.style.display = 'block'
+            email.focus();
+            return false;
+        }else{
+            
+            email.style.borderColor = '';
+            var errorEmail = document.querySelector("#error-email");
+            errorEmail.style.display = 'none';
+        }
+
+
+        //----------------------------------------validando telefone----------------------------------------------------
+        if(!isPhone(phone.value)){
+            
+            phone.style.borderColor = 'red'
+            var errorPhone = document.querySelector("#error-phone")
+            errorPhone.style.display = 'block'
+            email.focus();
+            return false;
+        }else{
+            
+            phone.style.borderColor = '';
+            var errorPhone = document.querySelector("#error-phone");
+            errorPhone.style.display = 'none';
+        }
+
+       
+
+        return true;
+
+    }
     function delete_acc(){
         if(confirm('Tem certeza que deseja deletar a conta?')){
         window.location.href='Delete_account.php';
         }
     }
     function edit_acc_prod(){
+        
+        
         tabelaProd = document.querySelector('.tabela-produtor')
         tabelaProd.style.display = 'none'
         formUpdate = document.querySelector('.form-update-infos-produtor')
@@ -152,10 +273,82 @@ if($_SESSION['is_produtor']){ ?>
 
     }
     function edit_acc_comprador(){
+        
         tabelaComprador = document.querySelector('.tabela-comprador')
         tabelaComprador.style.display = 'none'
         formUpdateComprador = document.querySelector('.form-update-infos-comprador')
         formUpdateComprador.style.display = 'block'
+        }
+        function isEmail(text) {
+        const regex =/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
+        if(regex.test(text)){
+            return true;
+        }
+        return false;
+    }
+
+
+    
+
+    
+
+
+
+    const nome_empresa=document.getElementById('nome_empresa');
+    const email_empresa=document.getElementById('email_produtor');
+    const phone_empresa=document.getElementById('phone_produtor');
+    
+
+    function validar_produtor(){
+//----------------------------------------validando nome-empresa--------------------------------------------------
+        if (nome_empresa.value.length<3 || !allLetter(nome_empresa)){
+            nome_empresa.style.borderColor = 'red';
+            var errorNomeEmpresa = document.querySelector("#error-name-empresa");
+            errorNomeEmpresa.style.display = 'block';
+            nome_empresa.focus();
+            return false;
+        
+        }else {
+            
+            nome_empresa.style.borderColor = '';
+            var errorNomeEmpresa = document.querySelector("#error-name-empresa");
+            errorNomeEmpresa.style.display = 'none';
+        }
+
+      
+
+        //----------------------------------------validando email--------------------------------------------------
+        if(!isEmail(email_empresa.value)){
+            
+            email_empresa.style.borderColor = 'red'
+            var errorEmail = document.querySelector("#error-email")
+            errorEmail.style.display = 'block'
+            email_empresa.focus();
+            return false;
+        }else {
+            email_empresa.style.borderColor = '';
+            var errorEmail = document.querySelector("#error-email");
+            errorEmail.style.display = 'none';
+        }
+
+        //----------------------------------------validando telefone--------------------------------------------------
+        if(!isPhone(phone_empresa.value)){
+            phone_empresa.style.borderColor = 'red'
+            var errorPhone = document.querySelector("#error-phone")
+            errorPhone.style.display = 'block'
+            phone_empresa.focus();
+            return false;
+        }else {
+            phone_empresa.style.borderColor = '';
+            var errorPhone = document.querySelector("#error-phone");
+            errorPhone.style.display = 'none';
+        }
+
+        
+       
+
+        return true;
+
     }
 </script>
 </html>
