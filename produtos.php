@@ -2,6 +2,9 @@
 include('connexion.php');
 session_start();
 
+if(!(isset($_SESSION['infos_pessoa_prod'])) && !(isset($_SESSION['infos_pessoa']))){
+    header('Location: Login_test.php');
+}
 
 if($_SESSION['is_produtor']){
     $first_name_prod =  isset($_SESSION['infos_pessoa_prod']['nome_empresa']) ? $_SESSION['infos_pessoa_prod']['nome_empresa'] : "" ;
