@@ -233,7 +233,7 @@ if(isset($_SESSION['duplicate_email'])){
             cnpjInput.style.borderColor = 'red'
             var errorCnpj = document.querySelector("#error-cnpj")
             errorCnpj.style.display = 'block'
-            first.focus();
+            cnpj.focus();
             return false;
         }else {
             var cnpjInput = document.querySelector('.input-box input[type="text"][name="cnpj"]');
@@ -248,7 +248,7 @@ if(isset($_SESSION['duplicate_email'])){
             emailInput.style.borderColor = 'red'
             var errorEmail = document.querySelector("#error-email")
             errorEmail.style.display = 'block'
-            first.focus();
+            email.focus();
             return false;
         }else {
             var emailInput = document.querySelector('.input-box input[type="text"][name="email"]');
@@ -263,7 +263,7 @@ if(isset($_SESSION['duplicate_email'])){
             phoneInput.style.borderColor = 'red'
             var errorPhone = document.querySelector("#error-phone")
             errorPhone.style.display = 'block'
-            first.focus();
+            phone.focus();
             return false;
         }else {
             var phoneInput = document.querySelector('.input-box input[type="text"][name="phone"]');
@@ -294,7 +294,7 @@ if(isset($_SESSION['duplicate_email'])){
             confirmPasswordInput.style.borderColor = 'red'
             var errorConfirmPassword = document.querySelector("#error-confirmPassword")
             errorConfirmPassword.style.display = 'block'
-            password.focus();
+            confirm_pass.focus();
             confirm_pass.value='';
             return false
         }else{

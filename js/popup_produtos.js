@@ -10,6 +10,8 @@
                                 var produtoNome = button.dataset.productNome;
                                 var anuncioIdProduto = button.dataset.productId;
                                 var qtdProdutoMax = button.dataset.productQtd;
+                                var preco = button.dataset.valorProduto;
+                                
 
                                 document.getElementById('popup-produto-nome').innerHTML= produtoNome;
 
@@ -19,12 +21,16 @@
                                 var qtdProduto = document.getElementById('qtd_produto_' + qtdProdutoMax).value;
                                 document.getElementById('qtd_produto').placeholder = "max: " + qtdProduto;
                                 document.getElementById('qtd_produto').max = qtdProduto;
+
+                                var total = document.getElementById('valor_produto_' + preco).value;
+                                document.getElementById('preco').value = total;
                                 
 
                                 // Exibir os valores no console para verificar se estão corretos
                                 console.log('Produto Nome: ', produtoNome);
                                 console.log('Produto ID: ', produtoId);
                                 console.log('Produto qtd: ', qtdProduto);
+                                console.log('Preco: ', total);
                             }
                         });
                     });
@@ -34,6 +40,7 @@
                         var popup = document.getElementById("popup1");
                         popup.style.display = 'none';
                         document.getElementById('qtd_produto').value = null;
+                        document.getElementById('Valor_total').innerHTML = "0";
 
 
 

@@ -222,7 +222,7 @@ if(isset($_SESSION['duplicate'])){
         }else{
             var phoneInput = document.querySelector('.input-box input[type="tel"][name="phone"]');
             phoneInput.style.borderColor = '';
-            var errorPhone = document.querySelector("#error-email");
+            var errorPhone = document.querySelector("#error-phone");
             errorPhone.style.display = 'none';
         }
 

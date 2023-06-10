@@ -7,6 +7,7 @@ $email=$_POST['email'];
 $phone=$_POST['phone'];
 $password=$_POST['pass'];
 $genero=$_POST['gender'];
+$balance= 0;
 
 
     $sql1= "Select email from infos where email='$email'";
@@ -22,7 +23,7 @@ $genero=$_POST['gender'];
 
 
 
-$sql = "INSERT INTO infos(first_name,last_name,email,phone,pass,genero) values ('$first_name','$last_name','$email','$phone','$password','$genero')";
+$sql = "INSERT INTO infos(first_name,last_name,email,phone,pass,genero,balance) values ('$first_name','$last_name','$email','$phone','$password','$genero','$balance')";
  if ($conn->query($sql) === TRUE) {
      session_start();
      $_SESSION['created']=True;

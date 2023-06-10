@@ -21,7 +21,8 @@ $array_info = array(
     "email" => $row['email'], 
     "phone" => $row['phone'],
     "pass" => $row['pass'],
-    "genero" => $row['genero']
+    "genero" => $row['genero'],
+    "balance" => $row['balance']
 
     
 ); 

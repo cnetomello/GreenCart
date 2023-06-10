@@ -2,6 +2,9 @@
 include('connexion.php');
 session_start();
 
+if(!(isset($_SESSION['infos_pessoa_prod'])) && !(isset($_SESSION['infos_pessoa']))){
+    header('Location: Login_test.php');
+}
 
 if($_SESSION['is_produtor']){
     $first_name_prod =  isset($_SESSION['infos_pessoa_prod']['nome_empresa']) ? $_SESSION['infos_pessoa_prod']['nome_empresa'] : "" ;
@@ -10,7 +13,10 @@ else{
     $id_comprador =  isset($_SESSION['infos_pessoa']['id']) ? $_SESSION['infos_pessoa']['id'] : "" ;
     echo $id_comprador;
 }
-
+if(isset( $_SESSION['saldo_insuficiente']) && $_SESSION['saldo_insuficiente']){
+    ?><script>alert("O seu saldo ta insuficiente.")</script>
+    <?php unset($_SESSION['saldo_insuficiente']);
+}
 
 $sql = "SELECT * FROM anuncio_infos WHERE  qtd_produto >0";
 $sql_nome = "SELECT * FROM infos_prod";
@@ -114,6 +120,7 @@ $result = $conn->query($sql);
                     padding: 20px;
                     border-radius: 4px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                   
                 }
             </style>
 
@@ -178,8 +185,13 @@ $result = $conn->query($sql);
                         <h2 id="popup-produto-nome" style="font-size: 20px;"></h2>
                         <form method="post" action="insert_pedido.php?id_comprador=<?php echo $id_comprador;?> " onsubmit="" style="margin:50px 20px 0px 20px; display:inline; ">
                             <label style="font-size:20px;">Quantidade:</label>
-                            <input id="qtd_produto" type="number" name="qtd" placeholder="" min="1"  style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 20px; width:20%; margin:30px; border: 1px solid black;align-items:center;" required >
+                            <input id="qtd_produto" type="number" name="qtd" placeholder="" min="1"  style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 20px; width:20%; margin:30px; border: 1px solid black;align-items:center;" required ><br>
+                            <div style="margin-left: 20px;">
+                            <label style="font-size:20px;">Valor Total:  </label>
+                            <h1 id="Valor_total">0</h1>
+                            </div>
                             <div style="margin:60px 0px 0px 100px; display: flex;justify-content:space-between; width:50%;">
+                            <input type="hidden" name="preco" id="preco" value="" >
                             <input type="hidden" name="produto_id" id="produto_id" value="" >
                             <input type="submit" value="Comprar" style="font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif;background-color:#45a049;padding:10px;border-radius: 10px;color:white; cursor:pointer;">
                             <input type="button" id="botao_voltar" onclick="voltar();" style="font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif;background-color:red;padding:10px;border-radius: 10px;color:white;cursor:pointer;" value="Voltar"></input>
@@ -214,7 +226,7 @@ $result = $conn->query($sql);
                         
                         echo '<input type="hidden" name="produto_id" id="produto_id_' . $row["id_anuncio"] . '" value="' . $row["id_anuncio"] . '">';
                         echo '<input type="hidden" name="qtd_produto" id="qtd_produto_' . $row["qtd_produto"] . '" value="' . $row["qtd_produto"] . '">';
-
+                        echo '<input type="hidden" name="valor_produto" id="valor_produto_' . $row["preco_unitario"] . '" value="' . $row["preco_unitario"] . '">';
 
 
                         echo '</div>';
@@ -223,6 +235,7 @@ $result = $conn->query($sql);
                         data-product-nome="' . $row["nome_produto"] . '"                    
                         data-product-id="' . $row["id_anuncio"] . '"
                         data-product-qtd="' . $row["qtd_produto"] . '" 
+                        data-valor-produto="' . $row["preco_unitario"] . '"
                         >Comprar</button>';}
                         echo '</div>';
                         $count++;
@@ -278,6 +291,7 @@ $result = $conn->query($sql);
                     
                 </script>
                 <script src="js/popup_produtos.js" type="text/javascript" ></script>
+                <script src="js/show_total.js" type="text/javascript" ></script>
 
             </section>
 
