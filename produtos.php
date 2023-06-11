@@ -130,7 +130,7 @@ $result = $conn->query($sql);
         </head>
         <body>
             <?php 
-            if($_SESSION['comprado']){
+            if(isset($_SESSION['comprado']) && $_SESSION['comprado']){
                 ?> <script>alert("Compra efetuada com sucesso.")</script> <?php
             unset($_SESSION['comprado']); 
             }
