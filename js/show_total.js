@@ -5,6 +5,6 @@ document.getElementById("qtd_produto").addEventListener("input",function() {
     precio2 = document.getElementById('preco').value;
     cantidad2 = document.getElementById('qtd_produto').value;
     total2 = precio2 * cantidad2;
-    document.getElementById('Valor_total').innerHTML = total2.toFixed(2);
+    document.getElementById('Valor_total').innerHTML = 'R$ ' +total2.toFixed(2);
   
   });
