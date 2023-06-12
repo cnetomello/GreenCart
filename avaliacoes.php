@@ -38,7 +38,7 @@ if (!(isset($_SESSION['infos_pessoa_prod'])) && !(isset($_SESSION['infos_pessoa'
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fas fa-bars"></label>
 
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <img src="images\greencart_carrinho-removebg-preview.png" style="width: 300px;;"></img>
         </a>
 
