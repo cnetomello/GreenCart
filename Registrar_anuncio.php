@@ -201,7 +201,7 @@ session_start();
     }
 
     function ret() {
-        if (confirm('Are you sure you want to return?'))
+        if (confirm('Deseja retornar a aba anterior?'))
             window.location.href = 'User.php';
     }
     </script>

@@ -189,7 +189,7 @@ $id_produtor = $_SESSION['infos_pessoa_prod']['id'];
        ?>
             <script>
             function ret() {
-                let c = confirm('Are you sure you want to return ?');
+                let c = confirm('Deseja retornar a aba anterior?');
                 if (c) {
                     window.location.href = 'User.php';
                 }
@@ -213,7 +213,7 @@ $id_produtor = $_SESSION['infos_pessoa_prod']['id'];
     ?>
             <script>
             function ret() {
-                let c = confirm('Are you sure you want to return ?');
+                let c = confirm('Deseja retornar a aba anterior?');
                 if (c) {
                     window.location.href = 'User.php';
                 }
