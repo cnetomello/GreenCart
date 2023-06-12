@@ -16,6 +16,7 @@ $result=$conn->query($sql1);}
 if( ($conn->query($sql) === TRUE) && ($result->num_rows>0)){
     session_start();
     $_SESSION['removed']=$id;
+    
     header('Location: Login_test.php');
 }
 

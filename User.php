@@ -133,7 +133,8 @@ $id_comprador =  isset($_SESSION['infos_pessoa']['id']) ? $_SESSION['infos_pesso
 <?php if($_SESSION['is_produtor']){?>
     <button name="Registrar Produto" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toAnuncio()">Registrar Anuncio</button>
     <button name="Editar Produtos" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toEditAnuncio()">Editar Anuncio</button>
-<?php }?>
+    <button name="Editar Produtos" style="margin-right: 20px;font-size:20px;background:green;border-radius:10px;color:aliceblue;cursor:pointer;width: 150px; height: 60px" onclick="toVisualizarVendas()">Visualizar Vendas</button>
+    <?php }?>
 </div>
 
 
@@ -201,6 +202,9 @@ $_SESSION['infos_pessoa']['balance']=$balance;
     }
     function toCompras(){
         window.location.href='Compras.php'
+    }
+    function toVisualizarVendas(){
+        window.location.href='Vendas.php'
     }
 </script>
 <script src="js/popup_fundos.js"></script>
