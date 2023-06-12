@@ -48,7 +48,6 @@ else{
 
             <div class="icons">
                 <a href="#" class="fas fa-heart"></a>
-                <a href="carrinho.php" class="fas fa-shopping-cart"></a>
                 <a href="User.php" data-modal-target="#modal" class="fas fa-user"></a>
             </div>
 

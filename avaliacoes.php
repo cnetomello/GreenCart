@@ -52,7 +52,6 @@ if (!(isset($_SESSION['infos_pessoa_prod'])) && !(isset($_SESSION['infos_pessoa'
 
         <div class="icons">
             <a href="#" class="fas fa-heart"></a>
-            <a href="carrinho.php" class="fas fa-shopping-cart"></a>
             <a href="User.php" class="fas fa-user"></a>
         </div>
 

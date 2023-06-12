@@ -156,7 +156,6 @@ $result = $conn->query($sql);
             
                 <div class="icons">
                     <a href="#" class="fas fa-heart"></a>
-                    <a href="carrinho.php" class="fas fa-shopping-cart"></a>
                     <a href="User.php" class="fas fa-user"></a>
                 </div>
             
