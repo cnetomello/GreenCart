@@ -46,7 +46,8 @@ if(isset($_SESSION['removed'])){
     ?>
     <script> alert('Account deleted.') </script>
     <?php
-    unset($_SESSION['removed']);
+
+    session_destroy();
 }
 if(isset($_SESSION['not_removed'])){
     ?>
