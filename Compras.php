@@ -254,7 +254,7 @@ session_start();
                             </div>
                             </div>
                             <div style="margin-left: 20px;margin-bottom:20px; display:flex;">
-                            <label style="font-size:20px;">Commentario: </label><br>
+                            <label style="font-size:20px;">Comentario: </label><br>
                             <textarea name="paragraph" id="comentario" cols="50" rows="10" style="border: 1px solid black;resize:none;padding:3px;margin-left:2px;" ></textarea>
                           
                             </div>
