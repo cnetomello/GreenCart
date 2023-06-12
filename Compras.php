@@ -206,7 +206,7 @@ alert("Avaliacao nao pode ser registrada atualmente.")
        ?>
             <script>
             function ret() {
-                let c = confirm('Are you sure you want to return ?');
+                let c = confirm('Deseja retornar a aba anterior?');
                 if (c) {
                     window.location.href = 'User.php';
                 }
@@ -225,7 +225,7 @@ alert("Avaliacao nao pode ser registrada atualmente.")
     ?>
             <script>
             function ret() {
-                let c = confirm('Are you sure you want to return ?');
+                let c = confirm('Deseja retornar a aba anterior?');
                 if (c) {
                     window.location.href = 'User.php';
                 }
