@@ -51,7 +51,6 @@ if (!(isset($_SESSION['infos_pessoa_prod'])) && !(isset($_SESSION['infos_pessoa'
         </nav>
 
         <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
             <a href="User.php" class="fas fa-user"></a>
         </div>
 
