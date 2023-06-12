@@ -11,7 +11,9 @@
                                 var anuncioIdProduto = button.dataset.productId;
                                 var qtdProdutoMax = button.dataset.productQtd;
                                 var preco = button.dataset.valorProduto;
-                                
+                                var data_colheita = button.dataset.dateColheita;
+
+                                document.getElementById('data_colheta').value = data_colheita;
 
                                 document.getElementById('popup-produto-nome').innerHTML= produtoNome;
 
@@ -31,6 +33,7 @@
                                 console.log('Produto ID: ', produtoId);
                                 console.log('Produto qtd: ', qtdProduto);
                                 console.log('Preco: ', total);
+                                console.log("Data:" + data_colheita);
                             }
                         });
                     });

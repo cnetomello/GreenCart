@@ -120,7 +120,7 @@ $result = $conn->query($sql);
         left: 50%;
         transform: translate(-50%, -50%);
         width: 600px;
-        height: 300px;
+        height: 400px;
         max-width: 90%;
         background-color: #fff;
         padding: 20px;
@@ -191,20 +191,27 @@ $result = $conn->query($sql);
         <div id="popup1" class="popup" style="display: none">
             <div class="popup-card">
                 <h2 id="popup-produto-nome" style="font-size: 20px;"></h2>
+                
                 <form method="post" action="insert_pedido.php?id_comprador=<?php echo $id_comprador;?> " onsubmit=""
                     style="margin:50px 20px 0px 20px; display:inline; ">
+                   
+                        
+                    <div style="margin-left: 20px;">
+                    <label style="font-size:20px;">Data Colheita:</label>
+                        <input type="text" name="data_colheita" id="data_colheta" value=""  style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 20px;color:greenyellow; width:150px; margin:30px; align-items:center;" value=""readonly>
+                       <br>   
                     <label style="font-size:20px;">Quantidade:</label>
                     <input id="qtd_produto" type="number" name="qtd" placeholder="" min="1"
                         style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 20px; width:20%; margin:30px; border: 1px solid black;align-items:center;"
                         required><br>
-                    <div style="margin-left: 20px;">
                         <label style="font-size:20px;">Valor Total: </label>
                         <h1 id="Valor_total">0</h1>
                     </div>
                     <div style="margin:60px 0px 0px 100px; display: flex;justify-content:space-between; width:50%;">
                         <input type="hidden" name="preco" id="preco" value="">
                         <input type="hidden" name="produto_id" id="produto_id" value="">
-                        <input type="submit" value="Comprar"
+                        
+                       <input type="submit" value="Comprar"
                             style="font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif;background-color:#45a049;padding:10px;border-radius: 10px;color:white; cursor:pointer;">
                         <input type="button" id="botao_voltar" onclick="voltar();"
                             style="font-size: 20px;font-family:Verdana, Geneva, Tahoma, sans-serif;background-color:red;padding:10px;border-radius: 10px;color:white;cursor:pointer;"
@@ -250,6 +257,7 @@ $result = $conn->query($sql);
                         data-product-id="' . $row["id_anuncio"] . '"
                         data-product-qtd="' . $row["qtd_produto"] . '" 
                         data-valor-produto="' . $row["preco_unitario"] . '"
+                        data-date-colheita="' .$row["data_colheta"] .'"
                         >Comprar</button>';}
                         echo '</div>';
                         $count++;
