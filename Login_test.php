@@ -53,7 +53,7 @@ if(isset($_SESSION['not_removed'])){
     ?>
     <script> alert('Account couldn\'t be deleted.') </script>
     <?php
-    unset($SESSION['not_removed']);
+    session_destroy();
 }
   
 
