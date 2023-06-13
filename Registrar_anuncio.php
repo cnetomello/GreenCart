@@ -97,6 +97,10 @@ session_start();
             <input type="file" id="foto" name="foto_produto"
                 style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;"
                 id="foto_prod" onchange="return fileValidation();" required>
+                <label for="foto_produto">Peso:</label>
+            <input type="text" placeholder="peso in Kg "  style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;" id="peso" name="peso" required>   
+
+
 
             <input type="submit" value="Registrar Anuncio"
                 style="background-color: #4CAF50; color: #fff; border: none; border-radius: 3px; padding: 10px 15px; cursor: pointer; font-size: 16px; margin-left: auto; margin-top: 50px; margin-right: auto; display: block;">

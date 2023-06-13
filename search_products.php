@@ -25,6 +25,7 @@ if(isset($_POST['input'])){
                
             echo '<div class="card">';
             echo '<h1 style="margin-bottom: 3px;color: green; font-size:20px; "> Produtor : '. $row_nome['nome_empresa'] . '</h1>';
+            echo  '<h1 style="margin-bottom: 10px;color: green; font-size:20px; "> Peso : '. $row['peso'] .  'Kg</h1>';
             echo '<img src="data:image/' . $row['tipo_foto'] . ';charset=utf8;base64,' . base64_encode($row['foto_produto']) . '" width="35%" height="150px">';
             echo '<h3>' . $row["nome_produto"] . '</h3>';
             echo $row["descricao"] . '<br>';
