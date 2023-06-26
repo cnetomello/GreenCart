@@ -6,6 +6,7 @@ $cnpj= $_POST['cnpj'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
 $password=$_POST['pass'];
+$insta_prod=$_POST['insta_prod'];
 
 
 
@@ -29,7 +30,7 @@ else{
 
 
 
-$sql = "INSERT INTO infos_prod(nome_empresa,cnpj,email_prod,fone_prod,pass_prod) values ('$nome_empresa','$cnpj','$email','$phone','$password')";
+$sql = "INSERT INTO infos_prod(nome_empresa,cnpj,email_prod,fone_prod,pass_prod,insta_prod) values ('$nome_empresa','$cnpj','$email','$phone','$password','$insta_prod')";
  if ($conn->query($sql) === TRUE) {
      session_start();
      $_SESSION['created']=True;

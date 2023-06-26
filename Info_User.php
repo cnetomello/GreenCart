@@ -6,6 +6,7 @@ if($_SESSION['is_produtor']){
     $nome_empresa=isset($_SESSION['infos_pessoa_prod']['nome_empresa']) ? $_SESSION['infos_pessoa_prod']['nome_empresa'] : "N/A" ;
     $email_prod = isset($_SESSION['infos_pessoa_prod']['email_prod']) ? $_SESSION['infos_pessoa_prod']['email_prod'] : "N/A" ;
     $fone_prod= isset($_SESSION['infos_pessoa_prod']['fone_prod']) ? $_SESSION['infos_pessoa_prod']['fone_prod'] : "N/A" ;
+    $insta_prod= isset($_SESSION['infos_pessoa_prod']['insta_prod']) ? $_SESSION['infos_pesssoa_prod']['insta_prod'] : "N/A" ;
 }
 else{
     $first_name =  isset($_SESSION['infos_pessoa']['first_name']) ? $_SESSION['infos_pessoa']['first_name'] : "N/A" ;
@@ -82,6 +83,10 @@ if($_SESSION['is_produtor']){ ?>
                 *Digite um telefone valido<br>
 
             </p>
+            <label for="insta_prod">Instagram:</label>
+            <input type="text" id="insta_prod" name="new_insta" value="<?php echo $insta_prod?>"
+                style="display: block; margin-bottom: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 3px; width: 100%; box-sizing: border-box;">
+
             <input type="submit" value="Salvar"
                 style="background-color: #4CAF50; color: #fff; border: none; border-radius: 3px; padding: 10px 15px; cursor: pointer; font-size: 16px; margin-left: auto; margin-right: auto; display: block;">
         </form>
@@ -100,6 +105,10 @@ if($_SESSION['is_produtor']){ ?>
             <tr class="label-name">
                 <th>Phone:</th>
                 <td><?php echo $fone_prod?></td>
+            </tr>
+            <tr class="label-name">
+                <th>Instagram:</th>
+                <td><?php echo $insta_prod?></td>
             </tr>
             <tr>
                 <td colspan="2">
