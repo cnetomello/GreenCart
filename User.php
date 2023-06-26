@@ -57,6 +57,7 @@ alert('As informações não foram possíveis ser atualizadas.');
 
 if($_SESSION['is_produtor']){
 $first_name_prod =  isset($_SESSION['infos_pessoa_prod']['nome_empresa']) ? $_SESSION['infos_pessoa_prod']['nome_empresa'] : "" ;
+$insta_prod = isset($_SESSION['infos_pessoa_prod']['insta_prod']) ? $_SESSION['infos_pessoa_prod']['insta_prod'] : "" ;
 }
 else{
 $first_name =  isset($_SESSION['infos_pessoa']['first_name']) ? $_SESSION['infos_pessoa']['first_name'] : "" ;
@@ -118,7 +119,8 @@ $id_comprador =  isset($_SESSION['infos_pessoa']['id']) ? $_SESSION['infos_pesso
             <h1 style="margin-top:20px;font-size:20px;"><?php if($_SESSION['is_produtor']){
 
     
-    echo 'Bem Vindo Produtor:  '.$first_name_prod;}
+    echo 'Bem Vindo Produtor:  '.$first_name_prod;
+    echo ' <br> Instagram:   '.$insta_prod;}
     else{ 
         echo 'Bem Vindo Comprador:  '.$first_name.' '.$last_name;
     } ?></h1>

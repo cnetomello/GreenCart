@@ -39,9 +39,11 @@ $array_info_prod = array(
     "cnpj" => $row['cnpj'],
     "email_prod" => $row['email_prod'],
     "fone_prod" => $row['fone_prod'],
-    "pass_prod" => $row['pass_prod']
+    "pass_prod" => $row['pass_prod'],
+    "insta_prod" => $row['insta_prod']
 
 
+    
 );
 $_SESSION['infos_pessoa_prod']= $array_info_prod;
 $_SESSION['is_produtor']=true;
@@ -53,5 +55,3 @@ else{
     header('Location: Login_test.php');
 }
     ?>
-
-
